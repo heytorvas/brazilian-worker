@@ -1,6 +1,6 @@
-from api.models.salary import SalaryBase
-from api.services.salary import calculate_liquid_value
 from fastapi import APIRouter, Body
+from models.salary import SalaryBase
+from services.salary import calculate_liquid_value
 
 router = APIRouter()
 

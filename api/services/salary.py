@@ -1,9 +1,9 @@
 import json
 
-from api.models.salary import Salary
+from models.salary import Salary
 
-INSS_DATA = json.load(open('api/data/inss.json', 'r'))
-IRRF_DATA = json.load(open('api/data/irrf.json', 'r'))
+INSS_DATA = json.load(open('data/inss.json', 'r'))
+IRRF_DATA = json.load(open('data/irrf.json', 'r'))
 
 def _find_percentage_and_deduction(data, salary):
     for percentage in data:

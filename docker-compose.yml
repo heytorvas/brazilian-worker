@@ -2,11 +2,9 @@ version: '3.0'
 services:  
   api:
     container_name: brazilian-worker.api
-    build: ./api/
-    command: uvicorn api.app:app --host 0.0.0.0 --port 5000 --reload
+    build: api/
+    command: uvicorn main:app --host 0.0.0.0 --port 5000 --reload
     ports:
       - "5000:5000"
-    volumes:
-      - .:/home/api
     tty: true
     stdin_open: true

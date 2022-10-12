@@ -1,6 +1,6 @@
 from fastapi import FastAPI
 
-from api.routes.salary import router as salary_router
+from routes.salary import router as salary_router
 
 app = FastAPI()
 
