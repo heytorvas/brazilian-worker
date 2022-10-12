@@ -1,3 +1,6 @@
+# Python
 *.pyc
 __pycache__/
+
+# API Deploy
 .deta
