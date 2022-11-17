@@ -8,3 +8,12 @@ services:
       - "5000:5000"
     tty: true
     stdin_open: true
+
+  web:
+    container_name: brazilian-worker.web
+    build: web/
+    ports:
+      - "4200:4200"
+    volumes:
+        - "/app/node_modules"
+        - "./web:/app"
