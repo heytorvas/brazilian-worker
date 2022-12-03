@@ -19,7 +19,7 @@
                             <span class="input-group-text">💵</span>
                             <div class="form-floating">
                                 <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control" id="floatingInputGroup1"
-                                    placeholder="" [ngModel]="salary.raw" name="raw" inputmode="numeric"
+                                    placeholder="Salário Bruto" [ngModel]="salary.raw" name="raw" inputmode="numeric"
                                     [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}" required>
                                 <label for="floatingInputGroup1">Salário Bruto</label>
                             </div>
@@ -30,7 +30,7 @@
                             <span class="input-group-text">➕</span>
                             <div class="form-floating">
                                 <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control" id="floatingInputGroup1"
-                                    placeholder="" [ngModel]="salary.earnings" name="earnings" inputmode="numeric"
+                                    placeholder="Ganhos Adicionais" [ngModel]="salary.earnings" name="earnings" inputmode="numeric"
                                     [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}">
                                 <label for="floatingInputGroup2">Ganhos Adicionais</label>
                             </div>
@@ -46,7 +46,7 @@
                             <span class="input-group-text">🏥</span>
                             <div class="form-floating">
                                 <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control" id="floatingInputGroup1"
-                                    placeholder="" [ngModel]="salary.medical_assistant" name="medical_assistant" inputmode="numeric"
+                                    placeholder="Assistência Médica" [ngModel]="salary.medical_assistant" name="medical_assistant" inputmode="numeric"
                                     [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}">
                                 <label for="floatingInputGroup1">Assistência Médica</label>
                             </div>
@@ -57,7 +57,7 @@
                             <span class="input-group-text">➖</span>
                             <div class="form-floating">
                                 <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control" id="floatingInputGroup1"
-                                    placeholder="" [ngModel]="salary.discounts" name="discounts" inputmode="numeric"
+                                    placeholder="Outros Descontos" [ngModel]="salary.discounts" name="discounts" inputmode="numeric"
                                     [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}">
                                 <label for="floatingInputGroup2">Outros Descontos</label>
                             </div>
