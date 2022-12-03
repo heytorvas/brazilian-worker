@@ -1,0 +1,66 @@
+<div class="accordion-item">
+    <h2 class="accordion-header" id="headingOne">
+        <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapseOne"
+            aria-expanded="true" aria-controls="collapseOne">
+            Cálculo de Salário Líquido
+        </button>
+    </h2>
+    <div id="collapseOne" class="accordion-collapse collapse show" aria-labelledby="headingOne"
+        data-bs-parent="#accordionExample">
+        <div class="accordion-body">
+            <form [formGroup]="formLiquidSalary" (ngSubmit)="onSubmit()">
+
+                <div class="row">
+                    <h4>Proventos</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">R$</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInputGroup1"
+                                    placeholder="Salário Bruto" formControlName="raw">
+                                <label for="floatingInputGroup1">Salário Bruto</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">R$</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInputGroup2"
+                                    placeholder="Ganhos Adicionais" formControlName="earnings">
+                                <label for="floatingInputGroup2">Ganhos Adicionais</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <h4>Descontos</h4>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">R$</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInputGroup3"
+                                    placeholder="Assistência Médica" formControlName="medical_assistant">
+                                <label for="floatingInputGroup3">Assistência Médica</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">R$</span>
+                            <div class="form-floating">
+                                <input type="text" class="form-control" id="floatingInputGroup4" placeholder="Outros" formControlName="discounts">
+                                <label for="floatingInputGroup4">Outros</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <input type="submit" class="btn btn-primary md-4" value="Calcular">
+            </form>
+        </div>
+    </div>
+</div>
