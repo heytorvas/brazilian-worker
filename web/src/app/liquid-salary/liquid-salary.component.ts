@@ -1,8 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { LiquidSalary, Salary } from './liquid-salary.model';
-import { HttpClient } from '@angular/common/http';
-import { API } from '../app.api';
 import { LiquidSalaryService } from './liquid-salary.service';
 
 @Component({
@@ -28,20 +26,18 @@ export class LiquidSalaryComponent implements OnInit {
             return false;
         }
         return true;
+    }
 
+    _removeUndefined(obj: Object) {
+        Object.keys(obj).forEach(key => obj[key] === undefined && delete obj[key]);
+        return obj
     }
 
     onSubmit(form: NgForm) {
-        console.log(form.value);
-    }
-
-    test() { 
-        let data = {"raw": 2222};
+        let data = this._removeUndefined(form.value)
         this.salaryService.getSalary(data).subscribe((result) => {
             this.response = result
-            console.log(this.response)
         })
     }
-
 
 }

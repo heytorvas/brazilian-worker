@@ -64,3 +64,13 @@
     transition: transform .2s ease-in-out;
   
 }
+
+button[type=submit] {
+    background-color: var(--bs-primary);
+    border-color: var(--bs-primary);
+}
+
+button[type=submit]:hover {
+    background-color: var(--bs-secondary);
+    border-color: var(--bs-secondary);
+}

@@ -21,8 +21,6 @@
                                 <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control" id="floatingInputGroup1"
                                     placeholder="" [ngModel]="salary.raw" name="raw" inputmode="numeric"
                                     [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}" required>
-                                    <!-- [ngModelOptions]="{updateOn:'blur'}"
-                                    (ngModelChange)="salary.raw=$event" -->
                                 <label for="floatingInputGroup1">Salário Bruto</label>
                             </div>
                         </div>
@@ -66,9 +64,57 @@
                         </div>
                     </div>
                 </div>
-                <input type="submit" [disabled]="!form.valid" class="btn btn-primary md-4" value="Calcular">
-                <input (click)="test()" class="btn btn-primary md-4" value="Opa">
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="submit" [disabled]="!form.valid" class="btn btn-primary btn-md w-100">Calcular</button>
+                    </div>
+                </div>
             </form>
+
+            <div *ngIf="response !== undefined">
+                <table class="table table-striped table-bordered mt-3">
+                    <thead>
+                      <tr>
+                        <th scope="col">Descrição</th>
+                        <th scope="col">Valor</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Salário Bruto</td>
+                        <td>{{ response.raw | currency:'BRL' }}</td>
+                      </tr>
+                      <tr>
+                        <td>Adicionais</td>
+                        <td>{{ response.earnings | currency:'BRL' }}</td>
+                      </tr>
+                      <tr>
+                        <td>Assistência Médica</td>
+                        <td>- {{ response.medical_assistant | currency:'BRL' }}</td>
+                      </tr>
+                      <tr>
+                        <td>Descontos</td>
+                        <td>- {{ response.discounts | currency:'BRL' }}</td>
+                      </tr>
+                      <tr>
+                        <td>INSS</td>
+                        <td>- {{ response.inss | currency:'BRL' }}</td>
+                      </tr>
+                      <tr>
+                        <td>IRFF</td>
+                        <td>- {{ response.irrf | currency:'BRL' }}</td>
+                      </tr>
+                      <tr>
+                        <td>FGTS</td>
+                        <td>{{ response.fgts | currency:'BRL' }}</td>
+                      </tr>
+                      <tr>
+                        <th scope="col">Total</th>
+                        <th scope="col">{{ response.total | currency:'BRL' }}</th>
+                      </tr>
+                    </tbody>
+                  </table>
+            </div>
         </div>
     </div>
 </div>
