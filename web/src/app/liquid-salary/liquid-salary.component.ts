@@ -1,6 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
-import { LiquidSalary } from './liquid-salary.model';
+import { NgForm } from '@angular/forms';
+import { LiquidSalary, Salary } from './liquid-salary.model';
+import { HttpClient } from '@angular/common/http';
+import { API } from '../app.api';
+import { LiquidSalaryService } from './liquid-salary.service';
 
 @Component({
     selector: 'app-liquid-salary',
@@ -9,24 +12,36 @@ import { LiquidSalary } from './liquid-salary.model';
 })
 
 export class LiquidSalaryComponent implements OnInit {
-    formLiquidSalary!: FormGroup;
 
-    constructor(private formBuilder: FormBuilder) { }
+    salary: LiquidSalary = {} as LiquidSalary;
+    response!: Salary
+
+    constructor(private salaryService: LiquidSalaryService) { }
 
     ngOnInit() {
-        this.createForm(new LiquidSalary());
+
     }
 
-    createForm(salary: LiquidSalary) {
-        this.formLiquidSalary = this.formBuilder.group({
-            raw: [salary.raw],
-            earnings: [salary.earnings],
-            medical_assistant: [salary.medical_assistant],
-            discounts: [salary.discounts]
+    numberOnly(event): boolean {
+        const charCode = (event.which) ? event.which : event.keyCode;
+        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
+            return false;
+        }
+        return true;
+
+    }
+
+    onSubmit(form: NgForm) {
+        console.log(form.value);
+    }
+
+    test() { 
+        let data = {"raw": 2222};
+        this.salaryService.getSalary(data).subscribe((result) => {
+            this.response = result
+            console.log(this.response)
         })
     }
 
-    onSubmit(){
-        console.log(this.formLiquidSalary.value);
-    }
+
 }

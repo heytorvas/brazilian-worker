@@ -1,6 +1,13 @@
-export class LiquidSalary {
-    raw: number = 0.0;
-    earnings: number = 0.0;
-    medical_assistant: number = 0.0;
-    discounts: number = 0.0;
+export interface LiquidSalary {
+    raw: number;
+    earnings: number;
+    medical_assistant: number;
+    discounts: number;
+}
+
+export interface Salary extends LiquidSalary{
+    inss: number,
+    irrf: number,
+    fgts: number,
+    total: number
 }
