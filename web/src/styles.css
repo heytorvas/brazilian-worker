@@ -1,44 +1,71 @@
-:root
-{
+:root {
     --bs-primary: rgba(95, 5, 255, 1);
     --bs-secondary: rgb(159, 105, 253);
 }
 
-.bg-white
-{
-    background-color:#ffffff;  
+html {
+    position: relative;
+    min-height: 100%;
 }
 
-.bg-primary
-{
-    background-color:var(--bs-primary)!important; 
+body {
+    margin-bottom: 60px;
+}
+
+.footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    text-align: center;
+}
+
+footer a {
+    text-decoration: none;
+    color: white;
+    font-weight: 700;
+}
+
+footer a:hover {
+    color: #00FF00;
+}
+
+.footer {
+    background-color: var(--bs-primary);
+    color: white;
+}
+
+.bg-white {
+    background-color: #ffffff;
+}
+
+.bg-primary {
+    background-color: var(--bs-primary) !important;
 }
 
 .text-primary {
-    color: var(--bs-primary)!important;
+    color: var(--bs-primary) !important;
 }
-
 
 .accordion-item {
     background-color: #fff;
     border: none;
-    
+
 }
 
 .accordion-button {
     background-color: #f2F2F2;
     box-shadow: none;
-    border:none;
+    border: none;
     padding: 20px 50px;
     margin: 4px 0;
 }
-.accordion-button:not(.collapsed)
-{
+
+.accordion-button:not(.collapsed) {
     border-bottom: 4px solid var(--bs-primary);
     color: var(--bs-primary);
     font-weight: bold;
-    background-color: #f2F2F2; 
-} 
+    background-color: #f2F2F2;
+}
 
 .accordion-button:focus {
     z-index: 3;
@@ -62,7 +89,7 @@
     background-repeat: no-repeat;
     background-size: 1.25rem;
     transition: transform .2s ease-in-out;
-  
+
 }
 
 button[type=submit] {

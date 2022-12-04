@@ -10,12 +10,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
 import { LiquidSalaryService } from './liquid-salary/liquid-salary.service';
 import { HomeComponent } from './home/home.component';
+import { FooterComponent } from './footer/footer.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LiquidSalaryComponent,
-    HomeComponent
+    HomeComponent,
+    FooterComponent
     
   ],
   imports: [
