@@ -6,6 +6,8 @@ services:
     command: uvicorn main:app --host 0.0.0.0 --port 5000 --reload
     ports:
       - "5000:5000"
+    volumes:
+      - "./api:/home/api"
     tty: true
     stdin_open: true
 
