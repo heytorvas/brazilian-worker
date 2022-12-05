@@ -26,17 +26,24 @@ def _calculate_irrf_value(salary, inss, dependents):
 def _calculate_fgts_value(salary):
     return round(salary * (8/100), 2)
 
+def _calculate_transport_voucher(salary, condition):
+    if condition:
+        return round(salary * (6/100), 2)
+    return 0
+
 def calculate_liquid_value(input):
     discounts = input.discounts + input.medical_assistant
+    transport_voucher = _calculate_transport_voucher(input.raw, input.transport_voucher)
     inss = _calculate_inss_value(input.raw)
     irrf = _calculate_irrf_value(input.raw, inss, input.dependents)
-    total = round(input.raw + input.earnings - inss - irrf - discounts, 2)
+    total = round(input.raw + input.earnings - inss - irrf - discounts - transport_voucher, 2)
     return Salary(
         raw=input.raw,
         earnings=input.earnings,
         medical_assistant=input.medical_assistant,
         discounts=input.discounts,
         dependents=input.dependents,
+        transport_voucher = transport_voucher,
         inss=inss,
         irrf=irrf,
         fgts=_calculate_fgts_value(input.raw),
