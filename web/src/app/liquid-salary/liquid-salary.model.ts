@@ -3,6 +3,8 @@ export interface LiquidSalary {
     earnings: number;
     medical_assistant: number;
     discounts: number;
+    dependents: number;
+    transport_voucher: any;
 }
 
 export interface Salary extends LiquidSalary{
