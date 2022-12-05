@@ -9,7 +9,7 @@ class SalaryBase(BaseModel):
     medical_assistant: Optional[float] = 0
     discounts: Optional[float] = 0
     dependents: Optional[int] = 0
-    transport_voucher: Union[bool, float] = False
+    transport_voucher: Union[float, bool] = 0
 
 class Salary(SalaryBase):
     inss: float
