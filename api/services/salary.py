@@ -27,7 +27,7 @@ def _calculate_fgts_value(salary):
     return round(salary * (8/100), 2)
 
 def _calculate_transport_voucher(salary, condition):
-    if condition:
+    if json.loads(str(condition).lower()):
         return round(salary * (6/100), 2)
     return 0
 
