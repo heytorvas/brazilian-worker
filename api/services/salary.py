@@ -5,6 +5,8 @@ from models.salary import Salary
 INSS_DATA = json.load(open('data/inss.json', 'r'))
 IRRF_DATA = json.load(open('data/irrf.json', 'r'))
 
+VALUE_PER_DEPENDENT = 189.59
+
 def _find_percentage_and_deduction(data, salary):
     for percentage in data:
         if data[percentage]['min'] <= salary <= data[percentage]['max']:
@@ -16,8 +18,8 @@ def _calculate_inss_value(salary):
         return deduction
     return round(salary * (float(percentage)/100) - deduction, 2)
 
-def _calculate_irrf_value(salary, inss):
-    total = salary - inss
+def _calculate_irrf_value(salary, inss, dependents):
+    total = salary - inss - (dependents * VALUE_PER_DEPENDENT)
     percentage, deduction = _find_percentage_and_deduction(IRRF_DATA, total)
     return round(total * (float(percentage)/100) - deduction, 2)
 
@@ -27,13 +29,14 @@ def _calculate_fgts_value(salary):
 def calculate_liquid_value(input):
     discounts = input.discounts + input.medical_assistant
     inss = _calculate_inss_value(input.raw)
-    irrf = _calculate_irrf_value(input.raw, inss)
+    irrf = _calculate_irrf_value(input.raw, inss, input.dependents)
     total = round(input.raw + input.earnings - inss - irrf - discounts, 2)
     return Salary(
         raw=input.raw,
         earnings=input.earnings,
         medical_assistant=input.medical_assistant,
         discounts=input.discounts,
+        dependents=input.dependents,
         inss=inss,
         irrf=irrf,
         fgts=_calculate_fgts_value(input.raw),

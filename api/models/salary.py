@@ -8,7 +8,7 @@ class SalaryBase(BaseModel):
     earnings: Optional[float] = 0
     medical_assistant: Optional[float] = 0
     discounts: Optional[float] = 0
-
+    dependents: Optional[int] = 0
 
 class Salary(SalaryBase):
     inss: float
