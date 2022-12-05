@@ -14,6 +14,8 @@ export class LiquidSalaryComponent implements OnInit {
     salary: LiquidSalary = {} as LiquidSalary;
     response!: Salary | null;
 
+    loading: boolean = false;
+
     constructor(private salaryService: LiquidSalaryService) { }
 
     ngOnInit() {
@@ -35,9 +37,11 @@ export class LiquidSalaryComponent implements OnInit {
     }
 
     onSubmit(form: NgForm) {
+        this.loading = true;
         this.response = null;
         let data = this._removeUndefined(form.value)
         this.salaryService.getSalary(data).subscribe((result) => {
+            this.loading = false;
             this.response = result
         })
     }
