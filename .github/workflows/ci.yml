@@ -1,28 +1,29 @@
-name: Unit and Integration Tests
+name: CI
 
 on:
   pull_request:
     branches:
-    - main
-    
-jobs:
-  test:
-    runs-on: ubuntu-latest
+      - main
 
+jobs:
+  pull-requests:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo hello
+
+  tests:
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         python-version: [3.9]
-
     steps:
       - uses: actions/checkout@v3
       - uses: actions/setup-python@v4
         with:
           python-version: ${{ matrix.python-version }}
           cache: 'pip'
-      - name: Install dependencies
+      - name: Install dependencies and testing with pytest
         working-directory: ./api
         run: |
           pip install -r requirements.txt
-      - name: Unit Testing with pytest
-        working-directory: ./api
-        run: python -m pytest tests/
+          python -m pytest tests/
