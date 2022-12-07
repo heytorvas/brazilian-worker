@@ -2,5 +2,8 @@
 *.pyc
 __pycache__/
 
+# Pytest
+.pytest_cache/
+
 # API Deploy
 .deta
