@@ -11,6 +11,7 @@ class SalaryBase(BaseModel):
     dependents: Optional[int] = 0
     transport_voucher: Union[float, bool] = 0
 
+
 class Salary(SalaryBase):
     inss: float
     irrf: float
