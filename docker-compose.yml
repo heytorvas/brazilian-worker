@@ -10,6 +10,8 @@ services:
       - "./api:/home/api"
     tty: true
     stdin_open: true
+    networks:
+      - backend-network
 
   web:
     container_name: brazilian-worker.web
@@ -19,3 +21,11 @@ services:
     volumes:
         - "/app/node_modules"
         - "./web:/app"
+    links:
+      - api
+    networks:
+      - backend-network
+
+networks:
+  backend-network:
+    driver: bridge

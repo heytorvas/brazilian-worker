@@ -1,6 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { API } from '../app.api';
+import { environment } from 'src/environments/environment';
 
 @Injectable({
     providedIn: 'root'
@@ -8,12 +8,12 @@ import { API } from '../app.api';
 export class LiquidSalaryService {
 
     constructor(private http: HttpClient) { }
-    
+
     getSalary(data) {
         const headers = {
-            'accept': 'application/json', 
+            'accept': 'application/json',
             'Content-Type': 'application/json',
         };
-        return this.http.post<any>(`${API}/salary`, data, {headers});
+        return this.http.post<any>(`${environment.API}/salary`, data, { headers });
     }
 }
