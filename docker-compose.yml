@@ -25,6 +25,8 @@ services:
       - api
     networks:
       - backend-network
+    depends_on:
+      - api
 
 networks:
   backend-network:
