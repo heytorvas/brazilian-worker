@@ -11,13 +11,17 @@ import { CurrencyMaskModule } from "ng2-currency-mask";
 import { LiquidSalaryService } from './liquid-salary/liquid-salary.service';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
+import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
+import { HeaderComponent } from './header/header.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LiquidSalaryComponent,
     HomeComponent,
-    FooterComponent
+    FooterComponent,
+    PageNotFoundComponent,
+    HeaderComponent
     
   ],
   imports: [
