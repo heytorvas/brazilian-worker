@@ -1,10 +1,10 @@
 from fastapi import APIRouter, Body
-from models.salary import SalaryBase
+from models.clt import CLTBase
 from services.salary import calculate_liquid_value
 
 router = APIRouter()
 
 
 @router.post('/')
-def get_salary_liquid(salary: SalaryBase = Body(...)):
+def get_salary_liquid(salary: CLTBase = Body(...)):
     return calculate_liquid_value(salary)

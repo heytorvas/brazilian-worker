@@ -3,7 +3,7 @@ from typing import Optional, Union
 from pydantic import BaseModel
 
 
-class SalaryBase(BaseModel):
+class CLTBase(BaseModel):
     raw: float
     earnings: Optional[float] = 0
     medical_assistant: Optional[float] = 0
@@ -12,7 +12,7 @@ class SalaryBase(BaseModel):
     transport_voucher: Union[float, bool] = 0
 
 
-class Salary(SalaryBase):
+class CLT(CLTBase):
     inss: float
     irrf: float
     fgts: float
