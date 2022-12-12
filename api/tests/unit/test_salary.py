@@ -1,5 +1,6 @@
 import pytest
-from models.salary import SalaryBase
+from models.clt import CLTBase
+
 from services.salary import (
     INSS_DATA,
     IRRF_DATA,
@@ -14,17 +15,17 @@ from services.salary import (
 
 class TestSalaryModel:
     def test_valid_create_salary_base(self):
-        salary = SalaryBase(raw=2300)
+        salary = CLTBase(raw=2300)
         assert salary.raw == 2300
         assert salary.earnings == 0
 
-        salary = SalaryBase(raw='2300')
+        salary = CLTBase(raw='2300')
         assert salary.raw == 2300
         assert salary.earnings == 0
 
     def test_invalid_create_salary_base(self):
         with pytest.raises(ValueError):
-            SalaryBase(raw='opa')
+            CLTBase(raw='opa')
 
 
 class TestSalaryService:
@@ -41,7 +42,7 @@ class TestSalaryService:
         assert deduction == 142.8
 
     def test_calculate_liquid_salary(self):
-        input = SalaryBase(raw=3000)
+        input = CLTBase(raw=3000)
         salary = calculate_liquid_value(input)
 
         assert salary.raw == 3000

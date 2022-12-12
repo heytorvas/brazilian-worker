@@ -1,6 +1,6 @@
 import json
 
-from models.salary import Salary
+from models.clt import CLT
 
 INSS_DATA = json.load(open('data/inss.json', 'r'))
 IRRF_DATA = json.load(open('data/irrf.json', 'r'))
@@ -45,7 +45,7 @@ def calculate_liquid_value(input):
     total = round(
         input.raw + input.earnings - inss - irrf - discounts - transport_voucher, 2
     )
-    return Salary(
+    return CLT(
         raw=input.raw,
         earnings=input.earnings,
         medical_assistant=input.medical_assistant,
