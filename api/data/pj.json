@@ -1,0 +1,192 @@
+{
+    "I": [
+        {
+            "percent": 0,
+            "deduction": 0,
+            "min": 0,
+            "max": 180000.0
+        },
+        {
+            "percent": 7.3,
+            "deduction": 5940.0,
+            "min": 180000.01,
+            "max": 360000.0
+        },
+        {
+            "percent": 9.5,
+            "deduction": 13860.0,
+            "min": 360000.01,
+            "max": 720000.0
+        },
+        {
+            "percent": 10.7,
+            "deduction": 22500.0,
+            "min": 720000.01,
+            "max": 1800000.0
+        },
+        {
+            "percent": 14.3,
+            "deduction": 87300.0,
+            "min": 1800000.01,
+            "max": 3600000.0
+        },
+        {
+            "percent": 19.0,
+            "deduction": 378000.0,
+            "min": 3600000.01,
+            "max": 4800000.0
+        }
+    ],
+    "II": [
+        {
+            "percent": 4.5,
+            "deduction": 0,
+            "min": 0,
+            "max": 180000.0
+        },
+        {
+            "percent": 7.8,
+            "deduction": 5940.0,
+            "min": 180000.01,
+            "max": 360000.0
+        },
+        {
+            "percent": 10.0,
+            "deduction": 13860.0,
+            "min": 360000.01,
+            "max": 720000.0
+        },
+        {
+            "percent": 11.2,
+            "deduction": 22500.0,
+            "min": 720000.01,
+            "max": 1800000.0
+        },
+        {
+            "percent": 14.7,
+            "deduction": 85500.0,
+            "min": 1800000.01,
+            "max": 3600000.0
+        },
+        {
+            "percent": 30.0,
+            "deduction": 720000.0,
+            "min": 3600000.01,
+            "max": 4800000.0
+        }
+    ],
+    "III": [
+        {
+            "percent": 0,
+            "deduction": 0,
+            "min": 0,
+            "max": 180000.0
+        },
+        {
+            "percent": 11.2,
+            "deduction": 9360.0,
+            "min": 180000.01,
+            "max": 360000.0
+        },
+        {
+            "percent": 13.5,
+            "deduction": 17640.0,
+            "min": 360000.01,
+            "max": 720000.0
+        },
+        {
+            "percent": 16.0,
+            "deduction": 35640.0,
+            "min": 720000.01,
+            "max": 1800000.0
+        },
+        {
+            "percent": 21.0,
+            "deduction": 125640.0,
+            "min": 1800000.01,
+            "max": 3600000.0
+        },
+        {
+            "percent": 33.0,
+            "deduction": 648000.0,
+            "min": 3600000.01,
+            "max": 4800000.0
+        }
+    ],
+    "IV": [
+        {
+            "percent": 4.5,
+            "deduction": 0,
+            "min": 0,
+            "max": 180000.0
+        },
+        {
+            "percent": 0,
+            "deduction": 8100.0,
+            "min": 180000.01,
+            "max": 360000.0
+        },
+        {
+            "percent": 10.2,
+            "deduction": 12420.0,
+            "min": 360000.01,
+            "max": 720000.0
+        },
+        {
+            "percent": 14.0,
+            "deduction": 39780.0,
+            "min": 720000.01,
+            "max": 1800000.0
+        },
+        {
+            "percent": 22.0,
+            "deduction": 183780.0,
+            "min": 1800000.01,
+            "max": 3600000.0
+        },
+        {
+            "percent": 33.0,
+            "deduction": 828000.0,
+            "min": 3600000.01,
+            "max": 4800000.0
+        }
+    ],
+    "V": [
+        {
+            "percent": 15.5,
+            "deduction": 0,
+            "min": 0,
+            "max": 180000.0
+        },
+        {
+            "percent": 18.0,
+            "deduction": 4500.0,
+            "min": 180000.01,
+            "max": 360000.0
+        },
+        {
+            "percent": 19.5,
+            "deduction": 9900.0,
+            "min": 360000.01,
+            "max": 720000.0
+        },
+        {
+            "percent": 20.5,
+            "deduction": 17100.0,
+            "min": 720000.01,
+            "max": 1800000.0
+        },
+        {
+            "percent": 23.0,
+            "deduction": 62100.0,
+            "min": 1800000.01,
+            "max": 3600000.0
+        },
+        {
+            "percent": 30.5,
+            "deduction": 540000.0,
+            "min": 3600000.01,
+            "max": 4800000.0
+        }
+    ]
+}
