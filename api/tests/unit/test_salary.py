@@ -1,7 +1,6 @@
 import pytest
 from models.clt import CLTBase
-
-from services.salary import (
+from services.clt import (
     INSS_DATA,
     IRRF_DATA,
     _calculate_fgts_value,
