@@ -5,7 +5,7 @@
 </h1>
 
 <p align="center">
-    <img src="https://img.shields.io/github/workflow/status/heytorvas/brazilian-worker/CI?style=flat-square">
+    <img src="https://img.shields.io/github/actions/workflow/status/heytorvas/brazilian-worker/ci.yml?branch=main&style=flat-square">
     <img src="https://img.shields.io/github/license/heytorvas/brazilian-worker?style=flat-square">
     <img src="https://img.shields.io/website?style=flat-square&url=https%3A%2F%2Fctps.heytor.dev">
 </p>
@@ -32,7 +32,7 @@ A tool for brazilian workers to help them with better understanding about your s
 
 * <b>Coming Soon:</b>
     * Compare CLT x PJ
-    * Calculate Retired Time 
+    * Calculate Retired Time
 
 ## 🏗️ Build with
 * Python
@@ -46,7 +46,7 @@ A tool for brazilian workers to help them with better understanding about your s
 ## 🏇 How to Use
 To clone and run this application, you'll need [Git](https://git-scm.com) and [Docker](https://www.docker.com/) installed on your computer. From your command line:
 
-```bash	
+```bash
 # Clone this repository
 git clone https://github.com/heytorvas/brazilian-worker.git
 
@@ -62,13 +62,13 @@ docker-compose up --build &
 ### 🧵 <b>Code Styleguide </b>
 To ensure that the project style guide is being followed, the pre-commit needs to be installed:
 
-1. Install pre-commit 
+1. Install pre-commit
 ```bash
 pip install pre-commit
 ```
 2. Install hooks
 ```bash
-$ pre-commit install --hook-type pre-commit --hook-type pre-push
+pre-commit install
 ```
 
 ### 📏 <b>Branch and Commit Nomeclature</b>
@@ -81,7 +81,7 @@ A couple of example of branch names:
 feat/new-feature-description
 ```
 
-OR
+or
 
 ```
 fix/bug-to-be-fixed
