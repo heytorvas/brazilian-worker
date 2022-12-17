@@ -1,6 +1,6 @@
 from fastapi import APIRouter, Body
 from models.clt import CLTBase
-from services.salary import calculate_liquid_value
+from services.clt import calculate_liquid_value
 
 router = APIRouter()
 
