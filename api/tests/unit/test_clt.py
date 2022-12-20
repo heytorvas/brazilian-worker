@@ -12,7 +12,7 @@ from services.clt import (
 )
 
 
-class TestSalaryModel:
+class TestCLTModel:
     def test_valid_create_salary_base(self):
         salary = CLTBase(raw=2300)
         assert salary.raw == 2300
@@ -27,7 +27,7 @@ class TestSalaryModel:
             CLTBase(raw='opa')
 
 
-class TestSalaryService:
+class TestCLTService:
     def test_get_percentage_and_deduction_from_inss(self):
         percentage, deduction = _find_percentage_and_deduction(INSS_DATA, 2000)
 

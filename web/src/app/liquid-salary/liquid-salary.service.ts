@@ -14,6 +14,6 @@ export class LiquidSalaryService {
             'accept': 'application/json',
             'Content-Type': 'application/json',
         };
-        return this.http.post<any>(`${environment.API}/salary`, data, { headers });
+        return this.http.post<any>(`${environment.API}/clt`, data, { headers });
     }
 }

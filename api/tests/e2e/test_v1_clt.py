@@ -6,9 +6,9 @@ from main import app
 client = TestClient(app)
 
 
-class TestIntegrationSalary:
+class TestIntegrationCLT:
 
-    URL = '/api/v1/salary/'
+    URL = '/api/v1/clt/'
     HEADERS = {
         'accept': 'application/json',
         'Content-Type': 'application/json',
