@@ -3,7 +3,7 @@ from enum import Enum
 from pydantic import BaseModel
 
 
-class AttachEnum(str, Enum):
+class AttachmentEnum(str, Enum):
     I = 'I'
     II = 'II'
     III = 'III'
@@ -12,7 +12,7 @@ class AttachEnum(str, Enum):
 
 
 class PJBase(BaseModel):
-    attach: AttachEnum
+    attachment: AttachmentEnum
     raw: float
 
 
