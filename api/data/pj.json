@@ -1,7 +1,7 @@
 {
     "I": [
         {
-            "percent": 0,
+            "percent": 4,
             "deduction": 0,
             "min": 0,
             "max": 180000.0
@@ -77,7 +77,7 @@
     ],
     "III": [
         {
-            "percent": 0,
+            "percent": 6,
             "deduction": 0,
             "min": 0,
             "max": 180000.0
@@ -121,7 +121,7 @@
             "max": 180000.0
         },
         {
-            "percent": 0,
+            "percent": 9,
             "deduction": 8100.0,
             "min": 180000.01,
             "max": 360000.0
