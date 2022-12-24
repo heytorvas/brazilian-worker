@@ -69,8 +69,17 @@ def calculate_liquid_value(input, pj=False):
         clt.vacation = _calculate_vacation_and_thirteenth(clt.raw)
         clt.thirteenth = clt.vacation
         clt.vacation_one_third = _calculate_vacation_one_third(clt.vacation)
-        clt.total = sum(
-            [clt.total, clt.vacation, clt.thirteenth, clt.vacation_one_third]
+        clt.total = round(
+            sum(
+                [
+                    clt.total,
+                    clt.vacation,
+                    clt.thirteenth,
+                    clt.vacation_one_third,
+                    clt.fgts,
+                ]
+            ),
+            2,
         )
         return clt
 

@@ -4,6 +4,7 @@ from services.pj import (
     _find_percentage_and_deduction,
     _get_tax_value,
     calculate_pj_salary,
+    calculate_pj_salary_by_clt,
 )
 
 
@@ -49,3 +50,12 @@ class TestPJService:
         assert pj.attachment == 'I'
         assert pj.tax == 280
         assert pj.total == 6720
+
+    def test_calculate_pj_salary_by_clt(self):
+        input = PJBase(raw=7000, attachment='I')
+        pj = calculate_pj_salary_by_clt(input)
+
+        assert pj.raw == 7291.67
+        assert pj.attachment == 'I'
+        assert pj.tax == 291.67
+        assert pj.total == 7000
