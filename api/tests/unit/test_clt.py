@@ -8,6 +8,7 @@ from services.clt import (
     _calculate_irrf_value,
     _calculate_transport_voucher,
     _find_percentage_and_deduction,
+    calculate_clt_salary_by_pj,
     calculate_liquid_value,
 )
 
@@ -90,3 +91,15 @@ class TestCLTService:
     )
     def test_calculate_inss(self, salary, value):
         assert _calculate_inss_value(salary) == value
+
+    def test_calculate_clt_salary_by_pj(self):
+        input = CLTBase(raw=7000)
+        clt = calculate_clt_salary_by_pj(input)
+
+        assert clt.total == 7000
+        assert clt.raw == 6695.14
+        assert clt.inss == 773.5
+        assert clt.irrf == 759.09
+        assert clt.fgts == 535.61
+        assert clt.vacation == 557.93
+        assert clt.vacation_one_third == 185.98

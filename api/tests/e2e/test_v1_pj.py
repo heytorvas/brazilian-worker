@@ -7,7 +7,7 @@ client = TestClient(app)
 
 
 class TestIntegrationPJ:
-    URL = '/api/v1/pj/'
+    URL = '/api/v1/pj'
     HEADERS = {
         'accept': 'application/json',
         'Content-Type': 'application/json',
