@@ -84,3 +84,18 @@ def calculate_liquid_value(input, pj=False):
         return clt
 
     return clt
+
+
+def calculate_clt_salary_by_pj(input):
+    clt = None
+    raw_clone = input.raw
+
+    while True:
+        aux = calculate_liquid_value(input, True)
+        if aux.total != raw_clone:
+            input.raw = round(input.raw - 0.01, 2)
+        else:
+            clt = aux
+            break
+
+    return clt

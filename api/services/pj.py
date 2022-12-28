@@ -32,14 +32,8 @@ def calculate_pj_salary(input):
 
 
 def calculate_pj_salary_by_clt(input):
+    pj = None
     raw_clone = input.raw
-    percentage, deduction = _find_percentage_and_deduction(input.attachment, input.raw)
-
-    total = input.raw + (input.raw * (percentage / 100))
-    total = total + (deduction / 12)
-    input.raw = total
-
-    pj = calculate_pj_salary(input)
 
     while True:
         aux = calculate_pj_salary(input)

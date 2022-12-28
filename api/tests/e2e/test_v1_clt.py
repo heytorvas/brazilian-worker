@@ -8,7 +8,7 @@ client = TestClient(app)
 
 class TestIntegrationCLT:
 
-    URL = '/api/v1/clt/'
+    URL = '/api/v1/clt'
     HEADERS = {
         'accept': 'application/json',
         'Content-Type': 'application/json',
