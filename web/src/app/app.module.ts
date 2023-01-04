@@ -13,6 +13,7 @@ import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
 import { HeaderComponent } from './header/header.component';
+import { PjSalaryComponent } from './pj-salary/pj-salary.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { HeaderComponent } from './header/header.component';
     HomeComponent,
     FooterComponent,
     PageNotFoundComponent,
-    HeaderComponent
+    HeaderComponent,
+    PjSalaryComponent
     
   ],
   imports: [
