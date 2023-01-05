@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AppComponent } from '../app.component';
 import { PJSalary, PJSalaryBase } from './pj-salary.model';
 import { PJSalaryService } from './pj-salary.service';
 
@@ -15,18 +16,14 @@ export class PjSalaryComponent implements OnInit {
 
   loading: boolean = false;
 
-  constructor(private pjSalaryService: PJSalaryService) { }
+  constructor(private pjSalaryService: PJSalaryService, private app: AppComponent) { }
 
   ngOnInit(): void {
     this.salary.attachment = 'I';
   }
 
-  numberOnly(event): boolean {
-    const charCode = (event.which) ? event.which : event.keyCode;
-    if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-        return false;
-    }
-    return true;
+  numberOnly(event) {
+    this.app.numberOnly(event);
   }
 
   onSubmit(form: NgForm) {

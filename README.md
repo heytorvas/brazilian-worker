@@ -15,7 +15,7 @@ A tool for brazilian workers to help them with better understanding about your s
 <img src="docs/homepage.png">
 
 ## 📋 Table of Contents
-- [📋 Table of Contents](#-table-of-contents)
+- [� Table of Contents](#-table-of-contents)
 - [🚀 Features](#-features)
 - [🏗️ Build with](#️-build-with)
 - [🏇 How to Use](#-how-to-use)
@@ -28,10 +28,14 @@ A tool for brazilian workers to help them with better understanding about your s
 
 
 ## 🚀 Features
-* Calculate Liquid Salary
+* Calculate CLT Liquid Salary
+* Calculate PJ Liquid Salary
 
 * <b>Coming Soon:</b>
     * Compare CLT x PJ
+    * Compare PJ X CLT
+    * Calculate Thirteen Salary
+    * Calculate Vacation Salary
     * Calculate Retired Time
 
 ## 🏗️ Build with
