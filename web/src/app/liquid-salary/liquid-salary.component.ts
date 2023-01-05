@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
+import { AppComponent } from '../app.component';
 import { LiquidSalary, Salary } from './liquid-salary.model';
 import { LiquidSalaryService } from './liquid-salary.service';
 
@@ -16,24 +17,20 @@ export class LiquidSalaryComponent implements OnInit {
 
     loading: boolean = false;
 
-    constructor(private salaryService: LiquidSalaryService) { }
+    constructor(private salaryService: LiquidSalaryService, private app: AppComponent) { }
 
     ngOnInit() {
         this.salary.dependents = 0;
         this.salary.transport_voucher = false;
     }
 
-    numberOnly(event): boolean {
-        const charCode = (event.which) ? event.which : event.keyCode;
-        if (charCode > 31 && (charCode < 48 || charCode > 57)) {
-            return false;
-        }
-        return true;
-    }
-
     _removeUndefined(obj: Object) {
         Object.keys(obj).forEach(key => obj[key] === undefined && delete obj[key]);
         return obj
+    }
+
+    numberOnly(event) {
+        return this.app.numberOnly(event);
     }
 
     onSubmit(form: NgForm) {
