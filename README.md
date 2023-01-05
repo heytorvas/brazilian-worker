@@ -10,12 +10,11 @@
     <img src="https://img.shields.io/website?style=flat-square&url=https%3A%2F%2Fctps.heytor.dev">
 </p>
 
-A tool for brazilian workers to help them with better understanding about your salary.
+<p align="center">A tool for brazilian workers to help them with better understanding about your salary.</p>
 
 <img src="docs/homepage.png">
 
 ## 📋 Table of Contents
-- [� Table of Contents](#-table-of-contents)
 - [🚀 Features](#-features)
 - [🏗️ Build with](#️-build-with)
 - [🏇 How to Use](#-how-to-use)
@@ -31,12 +30,12 @@ A tool for brazilian workers to help them with better understanding about your s
 * Calculate CLT Liquid Salary
 * Calculate PJ Liquid Salary
 
-* <b>Coming Soon:</b>
-    * Compare CLT x PJ
-    * Compare PJ X CLT
-    * Calculate Thirteen Salary
-    * Calculate Vacation Salary
-    * Calculate Retired Time
+  ### <b>Coming Soon:</b>
+* Compare CLT x PJ
+* Compare PJ X CLT
+* Calculate Thirteen Salary
+* Calculate Vacation Salary
+* Calculate Retired Time
 
 ## 🏗️ Build with
 * Python
