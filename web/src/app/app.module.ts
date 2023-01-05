@@ -15,6 +15,8 @@ import { PageNotFoundComponent } from './page-not-found/page-not-found.component
 import { HeaderComponent } from './header/header.component';
 import { PjSalaryComponent } from './pj-salary/pj-salary.component';
 import { LoadingComponent } from './loading/loading.component';
+import { PjCltComponent } from './pj-clt/pj-clt.component';
+import { CltPjComponent } from './clt-pj/clt-pj.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +27,9 @@ import { LoadingComponent } from './loading/loading.component';
     PageNotFoundComponent,
     HeaderComponent,
     PjSalaryComponent,
-    LoadingComponent
+    LoadingComponent,
+    PjCltComponent,
+    CltPjComponent
     
   ],
   imports: [

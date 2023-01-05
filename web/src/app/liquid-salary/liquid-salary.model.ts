@@ -13,3 +13,9 @@ export interface Salary extends LiquidSalary{
     fgts: number,
     total: number
 }
+
+export interface CLT extends Salary {
+    vacation: number;
+    vacation_one_third: number;
+    thirteenth: number;
+}
