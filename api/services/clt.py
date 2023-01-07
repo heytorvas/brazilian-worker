@@ -94,9 +94,15 @@ def calculate_clt_salary_by_pj(input):
     while True:
         aux = calculate_liquid_value(input, True)
         if aux.total < raw_clone:
-            input.raw = round(input.raw + 0.01, 2)
+            input.raw = round(input.raw + 1.00, 2)
         else:
-            clt = aux
+            while True:
+                aux = calculate_liquid_value(input, True)
+                if aux.total > raw_clone:
+                    input.raw = round(input.raw - 0.01, 2)
+                else:
+                    clt = aux
+                    break
             break
 
     return clt
