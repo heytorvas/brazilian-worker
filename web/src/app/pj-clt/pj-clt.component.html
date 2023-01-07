@@ -52,7 +52,7 @@
                 <div class="col-md-12">
                     <div class="card mt-3">
                         <div class="card-body">
-                            <h6 class="card-title"><b>* Categorias dos Anexos</b></h6>
+                            <h6 class="card-title"><b>Categorias dos Anexos</b></h6>
                             <section>
                                 <p><b>I - </b>Comércio</p>
                                 <p><b>II - </b>Indústria</p>
@@ -98,11 +98,11 @@
                                 </tr>
                                 <tr>
                                     <th scope="col">Total</th>
-                                    <th scope="col">{{ response.pj.total | currency:'BRL' }}**</th>
+                                    <th scope="col">{{ response.pj.total | currency:'BRL' }}*</th>
                                 </tr>
                             </tbody>
                         </table>
-                        <p>** Neste cálculo não está sendo considerado a taxa relacionada aos serviços de contabilidade.</p>
+                        <p>* Neste cálculo não está sendo considerado a taxa relacionada aos serviços de contabilidade.</p>
                     </div>
                     <div class="col-md-6">
                         <h4 style="text-align: center;">CLT</h4>
@@ -132,7 +132,7 @@
                                 </tr>
                                 <tr>
                                     <td>Férias</td>
-                                    <td>{{ response.clt.vacation | currency:'BRL' }}</td>
+                                    <td>{{ response.clt.vacation | currency:'BRL' }}**</td>
                                 </tr>
                                 <tr>
                                     <td>1/3 Férias</td>
@@ -140,7 +140,7 @@
                                 </tr>
                                 <tr>
                                     <td>13º Salário</td>
-                                    <td>{{ response.clt.thirteenth | currency:'BRL' }}</td>
+                                    <td>{{ response.clt.thirteenth | currency:'BRL' }}**</td>
                                 </tr>
                                 <tr>
                                     <th scope="col">Total</th>
@@ -148,6 +148,7 @@
                                 </tr>
                             </tbody>
                         </table>
+                        <p>Valores de férias e 13º salário já estão aplicados com os descontos referentes a INSS e IRRF.</p>
                     </div>
                 </div>
             </div>
