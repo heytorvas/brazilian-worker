@@ -1,6 +1,6 @@
 import json
 
-from models.clt import CLT
+from models.clt import CLT, CLTBase
 
 INSS_DATA = json.load(open('data/inss.json', 'r'))
 IRRF_DATA = json.load(open('data/irrf.json', 'r'))
@@ -38,11 +38,12 @@ def _calculate_transport_voucher(salary, condition):
 
 
 def _calculate_vacation_and_thirteenth(salary):
-    return round(salary * (1 / 12), 2)
+    salary = calculate_liquid_value(CLTBase(raw=salary))
+    return round(salary.total * (1 / 12), 2)
 
 
 def _calculate_vacation_one_third(vacation):
-    return round(vacation * (1 / 3), 2)
+    return round((vacation * (1 / 3)) / 12, 2)
 
 
 def calculate_liquid_value(input, pj=False):
@@ -92,8 +93,8 @@ def calculate_clt_salary_by_pj(input):
 
     while True:
         aux = calculate_liquid_value(input, True)
-        if aux.total != raw_clone:
-            input.raw = round(input.raw - 0.01, 2)
+        if aux.total < raw_clone:
+            input.raw = round(input.raw + 0.01, 2)
         else:
             clt = aux
             break
