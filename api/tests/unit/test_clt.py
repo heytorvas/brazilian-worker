@@ -97,9 +97,9 @@ class TestCLTService:
         clt = calculate_clt_salary_by_pj(input)
 
         assert clt.total == 7000
-        assert clt.raw == 7208.32
-        assert clt.inss == 828.39
-        assert clt.irrf == 885.12
-        assert clt.fgts == 576.67
-        assert clt.vacation == 457.9
-        assert clt.vacation_one_third == 12.72
+        assert clt.raw == 7065.83
+        assert clt.inss == 825.4
+        assert clt.irrf == 846.76
+        assert clt.fgts == 565.27
+        assert clt.vacation == 591.59
+        assert clt.thirteenth == 449.47

@@ -118,7 +118,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr>
+                        <tr *ngIf="response.dependents > 0">
                             <td>Quantidade de Dependentes</td>
                             <td>{{ response.dependents }}</td>
                         </tr>
