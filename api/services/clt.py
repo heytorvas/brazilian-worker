@@ -37,13 +37,14 @@ def _calculate_transport_voucher(salary, condition):
     return 0
 
 
-def _calculate_vacation_and_thirteenth(salary):
-    salary = calculate_liquid_value(CLTBase(raw=salary))
+def _calculate_vacation(salary):
+    salary = calculate_liquid_value(CLTBase(raw=salary + (salary * (1 / 3))))
     return round(salary.total * (1 / 12), 2)
 
 
 def _calculate_vacation_one_third(vacation):
-    return round((vacation * (1 / 3)) / 12, 2)
+    salary = calculate_liquid_value(CLTBase(raw=vacation))
+    return round(salary.total * (1 / 12), 2)
 
 
 def calculate_liquid_value(input, pj=False):
@@ -67,16 +68,14 @@ def calculate_liquid_value(input, pj=False):
         total=total,
     )
     if pj:
-        clt.vacation = _calculate_vacation_and_thirteenth(clt.raw)
-        clt.thirteenth = clt.vacation
-        clt.vacation_one_third = _calculate_vacation_one_third(clt.vacation)
+        clt.vacation = _calculate_vacation(clt.raw)
+        clt.thirteenth = _calculate_vacation_one_third(clt.raw)
         clt.total = round(
             sum(
                 [
                     clt.total,
                     clt.vacation,
                     clt.thirteenth,
-                    clt.vacation_one_third,
                     clt.fgts,
                 ]
             ),

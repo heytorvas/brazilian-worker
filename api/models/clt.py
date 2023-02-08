@@ -18,5 +18,4 @@ class CLT(CLTBase):
     fgts: float
     total: float
     vacation: Optional[float] = None
-    vacation_one_third: Optional[float] = None
     thirteenth: Optional[float] = None

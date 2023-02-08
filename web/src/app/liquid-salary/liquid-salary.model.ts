@@ -16,6 +16,5 @@ export interface Salary extends LiquidSalary{
 
 export interface CLT extends Salary {
     vacation: number;
-    vacation_one_third: number;
     thirteenth: number;
 }
