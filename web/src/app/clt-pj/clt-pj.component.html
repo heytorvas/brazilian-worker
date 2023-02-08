@@ -8,7 +8,226 @@
     <div id="clt-pj" class="accordion-collapse collapse" aria-labelledby="headingTwo"
         data-bs-parent="#accordionExample">
         <div class="accordion-body">
-            <b>Em breve!</b>
+            <form #form="ngForm" (ngSubmit)="onSubmit(form)">
+
+                <div class="row">
+                    <h3>Proventos</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">💵</span>
+                            <div class="form-floating">
+                                <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control"
+                                    id="clt-pj-raw" placeholder="Salário Bruto" [ngModel]="salary.raw"
+                                    name="raw" inputmode="numeric"
+                                    [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}" required>
+                                <label for="clt-pj-raw">Salário Bruto</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">➕</span>
+                            <div class="form-floating">
+                                <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control"
+                                    id="clt-pj-earnings" placeholder="Ganhos Adicionais" [ngModel]="salary.earnings"
+                                    name="earnings" inputmode="numeric"
+                                    [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}">
+                                <label for="clt-pj-earnings">Ganhos Adicionais</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h3>Descontos</h3>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">🏥</span>
+                            <div class="form-floating">
+                                <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control"
+                                    id="clt-pj-medical" placeholder="Assistência Médica"
+                                    [ngModel]="salary.medical_assistant" name="medical_assistant" inputmode="numeric"
+                                    [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}">
+                                <label for="clt-pj-medical">Assistência Médica</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">➖</span>
+                            <div class="form-floating">
+                                <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control"
+                                    id="clt-pj-discounts" placeholder="Outros Descontos" [ngModel]="salary.discounts"
+                                    name="discounts" inputmode="numeric"
+                                    [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}">
+                                <label for="clt-pj-discounts">Outros Descontos</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">👪</span>
+                            <div class="form-floating">
+                                <input (keypress)="numberOnly($event)" type="text" class="form-control"
+                                    id="clt-pj-dependents" placeholder="Dependentes" [ngModel]="salary.dependents"
+                                    name="dependents" inputmode="numeric" value="0" required>
+                                <label for="clt-pj-dependents">Dependentes</label>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">🚊</span>
+                            <div class="form-floating">
+                                <select [ngModel]="salary.transport_voucher" name="transport_voucher"
+                                    class="form-select" id="clt-pj-transport" style="padding-left: 0.75em;" required>
+                                    <option [ngValue]="false" selected>Não</option>
+                                    <option [ngValue]="true">Sim</option>
+                                </select>
+                                <label for="clt-pj-transport">Vale Transporte</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <h3>Área</h3>
+                </div>
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="input-group mb-3">
+                            <span class="input-group-text">📋</span>
+                            <div class="form-floating">
+                                <select name="attachment" [ngModel]="salary.attachment" class="form-select"
+                                    id="clt-pj-attachment" style="padding-left: 0.75em;" required>
+                                    <option value="I" selected>I</option>
+                                    <option value="II">II</option>
+                                    <option value="III">III</option>
+                                    <option value="IV">IV</option>
+                                    <option value="V">V</option>
+                                </select>
+                                <label for="clt-pj-attachment">Anexo</label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="col-sm-12">
+                        <button type="submit" [disabled]="!form.valid"
+                            class="btn btn-primary btn-md w-100">Calcular</button>
+                    </div>
+                </div>
+            </form>
+
+            <div *ngIf="loading == true" class="loading">
+                <app-loading></app-loading>
+            </div>
+
+            <div *ngIf="response != null">
+                <div class="row mt-3">
+                    <div class="col-md-6">
+                        <h4 style="text-align: center;">CLT</h4>
+                        <table class="table table-striped table-bordered mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Salário Bruto</td>
+                                    <td>{{ response.clt.raw | currency:'BRL' }}</td>
+                                </tr>
+                                <tr *ngIf="response.clt.dependents > 0">
+                                    <td>Quantidade de Dependentes</td>
+                                    <td>{{ response.clt.dependents }}</td>
+                                </tr>
+                                <tr *ngIf="response.clt.earnings > 0">
+                                    <td>Adicionais</td>
+                                    <td>{{ response.earnings | currency:'BRL' }}</td>
+                                </tr>
+                                <tr *ngIf="response.clt.medical_assistant > 0">
+                                    <td>Assistência Médica</td>
+                                    <td>- {{ response.medical_assistant | currency:'BRL' }}</td>
+                                </tr>
+                                <tr *ngIf="response.clt.transport_voucher > 0">
+                                    <td>Vale Transporte</td>
+                                    <td>- {{ response.transport_voucher | currency:'BRL' }}</td>
+                                </tr>
+                                <tr *ngIf="response.clt.discounts > 0">
+                                    <td>Descontos</td>
+                                    <td>- {{ response.discounts | currency:'BRL' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>INSS</td>
+                                    <td>- {{ response.clt.inss | currency:'BRL' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>IRFF</td>
+                                    <td>- {{ response.clt.irrf | currency:'BRL' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>FGTS</td>
+                                    <td>{{ response.clt.fgts | currency:'BRL' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Férias + 1/3</td>
+                                    <td>{{ response.clt.vacation | currency:'BRL' }}**</td>
+                                </tr>
+                                <tr>
+                                    <td>13º Salário</td>
+                                    <td>{{ response.clt.thirteenth | currency:'BRL' }}**</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">{{ response.clt.total | currency:'BRL' }}</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>** Valores de férias e 13º salário já estão aplicados com os descontos referentes a INSS e IRRF.</p>
+                    </div>
+                    <div class="col-md-6">
+                        <h4 style="text-align: center;">PJ</h4>
+                        <table class="table table-striped table-bordered mt-3">
+                            <thead>
+                                <tr>
+                                    <th scope="col">Descrição</th>
+                                    <th scope="col">Valor</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                <tr>
+                                    <td>Anexo</td>
+                                    <td>{{ response.pj.attachment }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Salário Bruto</td>
+                                    <td>{{ response.pj.raw | currency:'BRL' }}</td>
+                                </tr>
+                                <tr>
+                                    <td>Impostos</td>
+                                    <td>- {{ response.pj.tax | currency:'BRL' }}</td>
+                                </tr>
+                                <tr>
+                                    <th scope="col">Total</th>
+                                    <th scope="col">{{ response.pj.total | currency:'BRL' }}*</th>
+                                </tr>
+                            </tbody>
+                        </table>
+                        <p>* Neste cálculo não está sendo considerado a taxa relacionada aos serviços de contabilidade.</p>
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>
