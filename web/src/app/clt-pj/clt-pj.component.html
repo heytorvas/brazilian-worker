@@ -155,7 +155,7 @@
                                 </tr>
                                 <tr *ngIf="response.clt.earnings > 0">
                                     <td>Adicionais</td>
-                                    <td>{{ response.earnings | currency:'BRL' }}</td>
+                                    <td>{{ response.clt.earnings | currency:'BRL' }}</td>
                                 </tr>
                                 <tr *ngIf="response.clt.medical_assistant > 0">
                                     <td>Assistência Médica</td>
