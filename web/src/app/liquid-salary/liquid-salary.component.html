@@ -128,19 +128,19 @@
                             <td>Salário Bruto</td>
                             <td>{{ response.raw | currency:'BRL' }}</td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="response.earnings > 0">
                             <td>Adicionais</td>
                             <td>{{ response.earnings | currency:'BRL' }}</td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="response.medical_assistant > 0">
                             <td>Assistência Médica</td>
                             <td>- {{ response.medical_assistant | currency:'BRL' }}</td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="response.transport_voucher > 0">
                             <td>Vale Transporte</td>
                             <td>- {{ response.transport_voucher | currency:'BRL' }}</td>
                         </tr>
-                        <tr>
+                        <tr *ngIf="response.discounts > 0">
                             <td>Descontos</td>
                             <td>- {{ response.discounts | currency:'BRL' }}</td>
                         </tr>
