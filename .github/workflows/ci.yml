@@ -15,7 +15,7 @@ jobs:
     steps:
       - run: echo hello
 
-  vuln-images:
+  api-vuln-images:
     runs-on: ubuntu-20.04
     steps:
       - uses: actions/checkout@v3
@@ -26,6 +26,23 @@ jobs:
         uses: aquasecurity/trivy-action@master
         with:
           image-ref: brazilian-worker/api:latest
+          format: 'table'
+          exit-code: '1'
+          ignore-unfixed: true
+          vuln-type: 'os,library'
+          severity: 'CRITICAL,HIGH'
+
+  web-vuln-images:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build the Container image
+        working-directory: ./web
+        run: docker build . --file Dockerfile --tag brazilian-worker/web:latest
+      - name: Run Trivy vulnerability scanner
+        uses: aquasecurity/trivy-action@master
+        with:
+          image-ref: brazilian-worker/web:latest
           format: 'table'
           exit-code: '1'
           ignore-unfixed: true
