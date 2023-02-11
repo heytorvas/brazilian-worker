@@ -13,6 +13,7 @@ import { CLTPJSchema } from './clt-pj.model';
 export class CltPjComponent implements OnInit {
   salary: CLTPJSchema = {} as CLTPJSchema;
   response!: CompareOutputSchema | null;
+  dependents;
 
   loading: boolean = false;
 
@@ -22,6 +23,7 @@ export class CltPjComponent implements OnInit {
     this.salary.dependents = 0;
     this.salary.transport_voucher = false;
     this.salary.attachment = 'I';
+    this.dependents = this.app.dependents;
   }
 
   numberOnly(event) {

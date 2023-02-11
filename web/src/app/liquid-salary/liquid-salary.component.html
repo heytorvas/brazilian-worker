@@ -75,13 +75,15 @@
                         <div class="input-group mb-3">
                             <span class="input-group-text">👪</span>
                             <div class="form-floating">
-                                <input (keypress)="numberOnly($event)" type="text" class="form-control"
-                                    id="floatingInputGroup5" placeholder="Dependentes" [ngModel]="salary.dependents"
-                                    name="dependents" inputmode="numeric" value="0" required>
-                                <label for="floatingInputGroup5">Dependentes</label>
+                                <select [ngModel]="salary.dependents" name="dependents" class="form-select"
+                                    id="liquid-salary-dependents" style="padding-left: 0.75em;" required>
+                                    <option *ngFor="let dep of dependents" [ngValue]="dep">{{ dep }}</option>
+                                </select>
+                                <label for="liquid-salary-dependents">Dependentes</label>
                             </div>
                         </div>
                     </div>
+                    
                     <div class="col-md-6">
                         <div class="input-group mb-3">
                             <span class="input-group-text">🚊</span>

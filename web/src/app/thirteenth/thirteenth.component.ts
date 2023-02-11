@@ -13,7 +13,7 @@ export class ThirteenthComponent implements OnInit {
 
   salary: Thirteenth = {} as Thirteenth;
   response!: Thirteenth | null;
-  dependents = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  dependents;
   months = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12]
 
   loading: boolean = false;
@@ -23,6 +23,7 @@ export class ThirteenthComponent implements OnInit {
   ngOnInit(): void {
     this.salary.dependents = 0;
     this.salary.months = 12;
+    this.dependents = this.app.dependents;
   }
 
   numberOnly(event) {
