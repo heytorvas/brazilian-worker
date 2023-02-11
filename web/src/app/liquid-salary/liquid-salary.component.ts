@@ -14,6 +14,7 @@ export class LiquidSalaryComponent implements OnInit {
 
     salary: LiquidSalary = {} as LiquidSalary;
     response!: Salary | null;
+    dependents;
 
     loading: boolean = false;
 
@@ -22,6 +23,7 @@ export class LiquidSalaryComponent implements OnInit {
     ngOnInit() {
         this.salary.dependents = 0;
         this.salary.transport_voucher = false;
+        this.dependents = this.app.dependents;
     }
 
     _removeUndefined(obj: Object) {
