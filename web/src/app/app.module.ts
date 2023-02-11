@@ -17,6 +17,7 @@ import { PjSalaryComponent } from './pj-salary/pj-salary.component';
 import { LoadingComponent } from './loading/loading.component';
 import { PjCltComponent } from './pj-clt/pj-clt.component';
 import { CltPjComponent } from './clt-pj/clt-pj.component';
+import { ThirteenthComponent } from './thirteenth/thirteenth.component';
 
 @NgModule({
   declarations: [
@@ -29,7 +30,8 @@ import { CltPjComponent } from './clt-pj/clt-pj.component';
     PjSalaryComponent,
     LoadingComponent,
     PjCltComponent,
-    CltPjComponent
+    CltPjComponent,
+    ThirteenthComponent
     
   ],
   imports: [
