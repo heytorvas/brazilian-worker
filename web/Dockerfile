@@ -1,7 +1,11 @@
-FROM node:16.10
+FROM node:18.14
+
+RUN apt-get update && apt-get install -y \
+    libde265-0=1.0.11-0+deb11u1
 
 WORKDIR /app
-COPY package.json ./
+
+COPY package*.json ./
 
 RUN npm install
 
