@@ -1,6 +1,6 @@
+from domain.models.pj import PJ, PJBase
 from fastapi import APIRouter, Body
-from models.pj import PJ, PJBase
-from services.pj import calculate_pj_salary
+from resources.services.pj import calculate_pj_salary
 
 router = APIRouter()
 

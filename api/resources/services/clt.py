@@ -1,6 +1,6 @@
 import json
 
-from models.clt import CLT, CLTBase
+from domain.models.clt import CLT, CLTBase
 
 INSS_DATA = json.load(open('data/inss.json', 'r'))
 IRRF_DATA = json.load(open('data/irrf.json', 'r'))

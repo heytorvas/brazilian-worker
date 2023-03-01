@@ -1,6 +1,6 @@
 import pytest
-from models.clt import CLTBase
-from services.clt import (
+from domain.models.clt import CLTBase
+from resources.services.clt import (
     INSS_DATA,
     IRRF_DATA,
     _calculate_fgts_value,

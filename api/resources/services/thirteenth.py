@@ -1,5 +1,5 @@
-from models.clt import CLTBase
-from services.clt import calculate_liquid_value
+from domain.models.clt import CLTBase
+from resources.services.clt import calculate_liquid_value
 
 
 def calculate_thirteenth(input):
