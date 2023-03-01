@@ -8,7 +8,11 @@ RUN apt-get update && apt-get install -y \
     libksba8=1.5.0-3+deb11u2 \
     libssl-dev=1.1.1n-0+deb11u4 \
     openssl=1.1.1n-0+deb11u4 \
-    libde265-0=1.0.11-0+deb11u1
+    libde265-0=1.0.11-0+deb11u1 \
+    git=1:2.30.2-1+deb11u2 \
+    git-man=1:2.30.2-1+deb11u2 \
+    libaprutil1=1.6.1-5+deb11u1 \
+    libgnutls30=3.7.1-5+deb11u3
 
 RUN mkdir /home/api
 WORKDIR /home/api
