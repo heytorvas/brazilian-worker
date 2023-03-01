@@ -1,9 +1,9 @@
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
-from routes.clt import router as clt_router
-from routes.compare import router as compare_router
-from routes.pj import router as pj_router
-from routes.thirteenth import router as thirteenth_router
+from resources.routes.clt import router as clt_router
+from resources.routes.compare import router as compare_router
+from resources.routes.pj import router as pj_router
+from resources.routes.thirteenth import router as thirteenth_router
 
 app = FastAPI()
 app.add_middleware(

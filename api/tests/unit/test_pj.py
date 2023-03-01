@@ -1,6 +1,6 @@
 import pytest
-from models.pj import PJBase
-from services.pj import (
+from domain.models.pj import PJBase
+from resources.services.pj import (
     _find_percentage_and_deduction,
     _get_tax_value,
     calculate_pj_salary,

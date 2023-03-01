@@ -1,8 +1,8 @@
+from domain.models.clt import CLTBase
+from domain.models.pj import PJBase
+from domain.schemas.compare import CompareInputSchema
 from fastapi import APIRouter, Body
-from models.clt import CLTBase
-from models.pj import PJBase
-from models.schemas.compare import CompareInputSchema
-from services.compare import compare_clt_pj, compare_pj_clt
+from resources.services.compare import compare_clt_pj, compare_pj_clt
 
 router = APIRouter()
 

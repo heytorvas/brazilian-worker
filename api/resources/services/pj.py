@@ -1,6 +1,6 @@
 import json
 
-from models.pj import PJ
+from domain.models.pj import PJ
 
 PJ_DATA = json.load(open('data/pj.json', 'r'))
 

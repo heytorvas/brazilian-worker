@@ -1,6 +1,6 @@
+from domain.models.clt import CLT, CLTBase
 from fastapi import APIRouter, Body
-from models.clt import CLT, CLTBase
-from services.clt import calculate_liquid_value
+from resources.services.clt import calculate_liquid_value
 
 router = APIRouter()
 

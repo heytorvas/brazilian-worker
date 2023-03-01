@@ -1,8 +1,8 @@
-from models.clt import CLTBase
-from models.pj import PJBase
-from models.schemas.compare import CompareResponseSchema
-from services.clt import calculate_clt_salary_by_pj, calculate_liquid_value
-from services.pj import calculate_pj_salary, calculate_pj_salary_by_clt
+from domain.models.clt import CLTBase
+from domain.models.pj import PJBase
+from domain.schemas.compare import CompareResponseSchema
+from resources.services.clt import calculate_clt_salary_by_pj, calculate_liquid_value
+from resources.services.pj import calculate_pj_salary, calculate_pj_salary_by_clt
 
 
 def compare_clt_pj(input_clt, attachment):

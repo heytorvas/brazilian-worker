@@ -1,5 +1,5 @@
-from models.clt import CLT, CLTBase
-from models.pj import PJ, AttachmentEnum
+from domain.models.clt import CLT, CLTBase
+from domain.models.pj import PJ, AttachmentEnum
 from pydantic import BaseModel
 
 

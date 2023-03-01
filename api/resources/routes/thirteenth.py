@@ -1,6 +1,6 @@
+from domain.schemas.thirteenth import Thirteenth
 from fastapi import APIRouter, Body
-from models.schemas.thirteenth import Thirteenth
-from services.thirteenth import calculate_thirteenth
+from resources.services.thirteenth import calculate_thirteenth
 
 router = APIRouter()
 
