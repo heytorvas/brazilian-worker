@@ -19,8 +19,10 @@ services:
     ports:
       - "4200:4200"
     volumes:
-        - "/app/node_modules"
-        - "./web:/app"
+      - "/app/node_modules"
+      - "./web:/app"
+    env_file:
+      - ./web/.env
     links:
       - api
     networks:
