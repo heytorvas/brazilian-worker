@@ -26,6 +26,7 @@ jobs:
         with:
           access_token: ${{ secrets.DETA_SPACE_ACCESS_TOKEN }}
           project_id: ${{ secrets.DETA_SPACE_PROJECT_ID }}
+          space_push: true
           space_release: true
-          list_on_discovery: true
+          list_on_discovery: false
           release_version: ${{ steps.tag_version.outputs.new_tag }}
