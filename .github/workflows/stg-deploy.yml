@@ -1,0 +1,19 @@
+name: Staging Deploy
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  api-preview:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: neobrains/space-deployment-github-action@v0.3
+        with:
+          access_token: ${{ secrets.DETA_SPACE_ACCESS_TOKEN }}
+          project_id: ${{ secrets.STG_DETA_SPACE_PROJECT_ID }}
+          space_push: true
+          space_release: true
+          list_on_discovery: false
