@@ -1,3 +1,4 @@
+from errors import error_handler
 from fastapi import FastAPI
 from fastapi.middleware.cors import CORSMiddleware
 from resources.routes.clt import router as clt_router
@@ -13,6 +14,8 @@ app.add_middleware(
     allow_methods=['*'],
     allow_headers=['*'],
 )
+
+error_handler(app)
 
 app.include_router(clt_router, prefix='/api/v1/clt', tags=['clt'])
 app.include_router(pj_router, prefix='/api/v1/pj', tags=['pj'])
