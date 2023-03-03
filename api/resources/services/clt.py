@@ -1,10 +1,10 @@
 import json
 
 from domain.models.clt import CLT, CLTBase
+from exceptions import MaximumRawSalaryReachedException
 
 INSS_DATA = json.load(open('data/inss.json', 'r'))
 IRRF_DATA = json.load(open('data/irrf.json', 'r'))
-
 VALUE_PER_DEPENDENT = 189.59
 
 
@@ -12,6 +12,8 @@ def _find_percentage_and_deduction(data, salary):
     for percentage in data:
         if data[percentage]['min'] <= salary <= data[percentage]['max']:
             return percentage, data[percentage]['deduction']
+
+    raise MaximumRawSalaryReachedException('Maximum CLT raw salary reached.')
 
 
 def _calculate_inss_value(salary):

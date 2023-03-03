@@ -1,6 +1,6 @@
 from enum import Enum
 
-from pydantic import BaseModel
+from pydantic import BaseModel, Field
 
 
 class AttachmentEnum(str, Enum):
@@ -13,7 +13,7 @@ class AttachmentEnum(str, Enum):
 
 class PJBase(BaseModel):
     attachment: AttachmentEnum
-    raw: float
+    raw: float = Field(ge=0)
 
 
 class PJ(PJBase):

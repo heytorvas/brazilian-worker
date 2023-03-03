@@ -1,0 +1,2 @@
+class MaximumRawSalaryReachedException(Exception):
+    pass

@@ -1,6 +1,7 @@
 import json
 
 from domain.models.pj import PJ
+from exceptions import MaximumRawSalaryReachedException
 
 PJ_DATA = json.load(open('data/pj.json', 'r'))
 
@@ -10,6 +11,8 @@ def _find_percentage_and_deduction(attachment, salary):
     for index in PJ_DATA[attachment]:
         if index['min'] <= salary <= index['max']:
             return index['percent'], index['deduction']
+
+    raise MaximumRawSalaryReachedException('Maximum PJ raw salary reached.')
 
 
 def _calculate_salary_per_year(raw):
