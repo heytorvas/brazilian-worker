@@ -8,11 +8,11 @@ def _parse_validation_error(exc):
     errors = exc.errors()
     return dict(
         content={
-            'message': 'Validation error.',
-            'errors': [
+            "message": "Validation error.",
+            "errors": [
                 {
-                    'location': '.'.join([str(loc) for loc in error['loc']]),
-                    'message': error['msg'],
+                    "location": ".".join([str(loc) for loc in error["loc"]]),
+                    "message": error["msg"],
                 }
                 for error in errors
             ],
@@ -27,9 +27,9 @@ def _generate_error(code, exc, internal=False):
 
     return dict(
         content={
-            'error': {
-                'code': code,
-                'message': 'Internal Server Error.' if internal else error_message,
+            "error": {
+                "code": code,
+                "message": "Internal Server Error." if internal else error_message,
             }
         },
         status_code=status_code,
