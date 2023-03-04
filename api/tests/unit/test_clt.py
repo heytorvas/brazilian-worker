@@ -19,13 +19,13 @@ class TestCLTModel:
         assert salary.raw == 2300
         assert salary.earnings == 0
 
-        salary = CLTBase(raw='2300')
+        salary = CLTBase(raw="2300")
         assert salary.raw == 2300
         assert salary.earnings == 0
 
     def test_invalid_create_salary_base(self):
         with pytest.raises(ValueError):
-            CLTBase(raw='opa')
+            CLTBase(raw="opa")
 
 
 class TestCLTService:
@@ -60,34 +60,34 @@ class TestCLTService:
         salary = 2000
         voucher = 120
 
-        assert _calculate_transport_voucher(salary, 'true') == voucher
-        assert _calculate_transport_voucher(salary, 'True') == voucher
-        assert _calculate_transport_voucher(salary, 'TRUE') == voucher
+        assert _calculate_transport_voucher(salary, "true") == voucher
+        assert _calculate_transport_voucher(salary, "True") == voucher
+        assert _calculate_transport_voucher(salary, "TRUE") == voucher
         assert _calculate_transport_voucher(salary, True) == voucher
-        assert _calculate_transport_voucher(salary, 'false') == 0
-        assert _calculate_transport_voucher(salary, 'False') == 0
-        assert _calculate_transport_voucher(salary, 'FALSE') == 0
+        assert _calculate_transport_voucher(salary, "false") == 0
+        assert _calculate_transport_voucher(salary, "False") == 0
+        assert _calculate_transport_voucher(salary, "FALSE") == 0
         assert _calculate_transport_voucher(salary, False) == 0
 
     @pytest.mark.parametrize(
-        'salary,inss,value',
+        "salary,inss,value",
         [(3000, 269, 62.02), (4000, 396.18, 185.77), (5000, 536.18, 368.23)],
     )
     def test_calculate_irrf_without_dependents(self, salary, inss, value):
         assert _calculate_irrf_value(salary, inss, dependents=0) == value
 
-    @pytest.mark.parametrize('dependent,value', [(1, 47.81), (2, 33.59), (3, 19.37)])
+    @pytest.mark.parametrize("dependent,value", [(1, 47.81), (2, 33.59), (3, 19.37)])
     def test_calculate_irrf_with_dependents(self, dependent, value):
         assert (
             _calculate_irrf_value(salary=3000, inss=269, dependents=dependent) == value
         )
 
-    @pytest.mark.parametrize('fgts,value', [(3000, 240), (4000, 320)])
+    @pytest.mark.parametrize("fgts,value", [(3000, 240), (4000, 320)])
     def test_calculate_fgts(self, fgts, value):
         assert _calculate_fgts_value(fgts) == value
 
     @pytest.mark.parametrize(
-        'salary,value', [(3000, 269), (4000, 396.18), (5000, 536.18)]
+        "salary,value", [(3000, 269), (4000, 396.18), (5000, 536.18)]
     )
     def test_calculate_inss(self, salary, value):
         assert _calculate_inss_value(salary) == value

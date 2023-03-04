@@ -4,11 +4,11 @@ from pydantic import BaseModel, Field
 
 
 class AttachmentEnum(str, Enum):
-    I = 'I'
-    II = 'II'
-    III = 'III'
-    IV = 'IV'
-    V = 'V'
+    I = "I"  # noqa: E741
+    II = "II"
+    III = "III"
+    IV = "IV"
+    V = "V"
 
 
 class PJBase(BaseModel):
