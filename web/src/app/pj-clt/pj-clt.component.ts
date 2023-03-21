@@ -3,7 +3,7 @@ import { NgForm } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { CompareOutputSchema } from '../compare.model';
 import { PJSalaryBase } from '../pj-salary/pj-salary.model';
-import { PJCLTService } from './pj-clt.service';
+import { AppService, ERROR_MESSAGES } from '../app.service';
 
 @Component({
   selector: 'app-pj-clt',
@@ -14,10 +14,11 @@ export class PjCltComponent implements OnInit {
 
   salary: PJSalaryBase = {} as PJSalaryBase;
   response!: CompareOutputSchema | null;
-
   loading: boolean = false;
+  errorEnabled = false;
+  errorMessage = '';
 
-  constructor(private pjCLTService: PJCLTService, private app: AppComponent) { }
+  constructor(private appService: AppService, private app: AppComponent) { }
 
   ngOnInit(): void {
     this.salary.attachment = 'I';
@@ -30,9 +31,14 @@ export class PjCltComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.loading = true;
     this.response = null;
-    this.pjCLTService.getSalary(form.value).subscribe((result) => {
+    this.appService.requestData('compare/pj', form.value).subscribe((result) => {
         this.loading = false;
         this.response = result;
+    }, (error) => {
+      this.response = null;
+      this.loading = false;
+      this.errorEnabled = true;
+      this.errorMessage = ERROR_MESSAGES[error.error.error.message];
     })
   }
 
