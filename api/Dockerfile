@@ -12,7 +12,8 @@ RUN apt-get update && apt-get install -y \
     git=1:2.30.2-1+deb11u2 \
     git-man=1:2.30.2-1+deb11u2 \
     libaprutil1=1.6.1-5+deb11u1 \
-    libgnutls30=3.7.1-5+deb11u3
+    libgnutls30=3.7.1-5+deb11u3 \
+    libapr1=1.7.0-6+deb11u2
 
 RUN mkdir /home/api
 WORKDIR /home/api
