@@ -74,6 +74,8 @@
                 <app-loading></app-loading>
             </div>
 
+            <app-alert-modal *ngIf="errorEnabled" [error]="errorMessage" (close)="errorEnabled=null"></app-alert-modal>
+
             <div *ngIf="response != null">
                 <div class="row mt-3">
                     <div class="col-md-12 text-center">
