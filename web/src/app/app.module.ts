@@ -8,7 +8,6 @@ import { LiquidSalaryComponent } from './liquid-salary/liquid-salary.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
-import { LiquidSalaryService } from './liquid-salary/liquid-salary.service';
 import { HomeComponent } from './home/home.component';
 import { FooterComponent } from './footer/footer.component';
 import { PageNotFoundComponent } from './page-not-found/page-not-found.component';
@@ -18,6 +17,7 @@ import { LoadingComponent } from './loading/loading.component';
 import { PjCltComponent } from './pj-clt/pj-clt.component';
 import { CltPjComponent } from './clt-pj/clt-pj.component';
 import { ThirteenthComponent } from './thirteenth/thirteenth.component';
+import { AlertModalComponent } from './alert-modal/alert-modal.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +31,8 @@ import { ThirteenthComponent } from './thirteenth/thirteenth.component';
     LoadingComponent,
     PjCltComponent,
     CltPjComponent,
-    ThirteenthComponent
+    ThirteenthComponent,
+    AlertModalComponent
     
   ],
   imports: [
@@ -42,7 +43,6 @@ import { ThirteenthComponent } from './thirteenth/thirteenth.component';
     ReactiveFormsModule,
     CurrencyMaskModule
   ],
-  providers: [LiquidSalaryService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

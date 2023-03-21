@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppComponent } from '../app.component';
 import { LiquidSalary, Salary } from './liquid-salary.model';
-import { LiquidSalaryService } from './liquid-salary.service';
+import { AppService } from '../app.service';
+import { ERROR_MESSAGES } from '../app.service';
 
 @Component({
     selector: 'app-liquid-salary',
@@ -15,10 +16,11 @@ export class LiquidSalaryComponent implements OnInit {
     salary: LiquidSalary = {} as LiquidSalary;
     response!: Salary | null;
     dependents;
-
     loading: boolean = false;
+    errorEnabled = false;
+    errorMessage = '';
 
-    constructor(private salaryService: LiquidSalaryService, private app: AppComponent) { }
+    constructor(private appService: AppService, private app: AppComponent) { }
 
     ngOnInit() {
         this.salary.dependents = 0;
@@ -38,9 +40,14 @@ export class LiquidSalaryComponent implements OnInit {
         this.loading = true;
         this.response = null;
         let data = this._removeUndefined(form.value)
-        this.salaryService.getSalary(data).subscribe((result) => {
+        this.appService.requestData('clt', data).subscribe((result) => {
             this.loading = false;
             this.response = result
+        }, (error) => {
+            this.response = null;
+            this.loading = false;
+            this.errorEnabled = true;
+            this.errorMessage = ERROR_MESSAGES[error.error.error.message];
         })
     }
 

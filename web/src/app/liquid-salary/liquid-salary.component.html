@@ -111,6 +111,8 @@
                 <app-loading></app-loading>
             </div>
 
+            <app-alert-modal *ngIf="errorEnabled" [error]="errorMessage" (close)="errorEnabled=null"></app-alert-modal>
+
             <div *ngIf="response != null">
                 <table class="table table-striped table-bordered mt-3">
                     <thead>
