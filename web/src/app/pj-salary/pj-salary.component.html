@@ -41,6 +41,23 @@
                 </div>
 
                 <div class="row">
+                    <div class="col-md-12">
+                        <div class="card mb-3">
+                            <div class="card-body">
+                                <h6 class="card-title"><b>Categorias dos Anexos</b></h6>
+                                <section>
+                                    <p><b>I - </b>Comércio</p>
+                                    <p><b>II - </b>Indústria</p>
+                                    <p><b>III - </b>Prestadores de Serviço: serviços de instalação/manutenção/reparos, agências de viagens, contabilidade, academias, etc.</p>
+                                    <p><b>IV - </b>Prestadores de Serviço: serviços de limpeza, vigilância, obras, advocacia, etc.</p>
+                                    <p><b>V - </b>Prestadores de Serviço: serviços de auditoria, tecnologia, jornalismo, publicidade, engenharia, etc.</p>
+                                </section>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row">
                     <div class="col-sm-12">
                         <button type="submit" [disabled]="!form.valid"
                             class="btn btn-primary btn-md w-100">Calcular</button>
@@ -48,26 +65,11 @@
                 </div>
             </form>
 
-            <div class="row">
-                <div class="col-md-12">
-                    <div class="card mt-3">
-                        <div class="card-body">
-                            <h6 class="card-title"><b>Categorias dos Anexos</b></h6>
-                            <section>
-                                <p><b>I - </b>Comércio</p>
-                                <p><b>II - </b>Indústria</p>
-                                <p><b>III - </b>Prestadores de Serviço: serviços de instalação/manutenção/reparos, agências de viagens, contabilidade, academias, etc.</p>
-                                <p><b>IV - </b>Prestadores de Serviço: serviços de limpeza, vigilância, obras, advocacia, etc.</p>
-                                <p><b>V - </b>Prestadores de Serviço: serviços de auditoria, tecnologia, jornalismo, publicidade, engenharia, etc.</p>
-                            </section>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
             <div *ngIf="loading == true" class="loading">
                 <app-loading></app-loading>
             </div>
+
+            <app-alert-modal *ngIf="errorEnabled" [error]="errorMessage" (close)="errorEnabled=null"></app-alert-modal>
 
             <div *ngIf="response != null">
                 <table class="table table-striped table-bordered mt-3">

@@ -1,8 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppComponent } from '../app.component';
+import { AppService } from '../app.service';
 import { PJSalary, PJSalaryBase } from './pj-salary.model';
-import { PJSalaryService } from './pj-salary.service';
+import { ERROR_MESSAGES } from '../app.service';
 
 @Component({
   selector: 'app-pj-salary',
@@ -13,10 +14,11 @@ export class PjSalaryComponent implements OnInit {
 
   salary: PJSalaryBase = {} as PJSalaryBase;
   response!: PJSalary | null;
-
   loading: boolean = false;
+  errorEnabled = false;
+  errorMessage = '';
 
-  constructor(private pjSalaryService: PJSalaryService, private app: AppComponent) { }
+  constructor(private appService: AppService, private app: AppComponent) { }
 
   ngOnInit(): void {
     this.salary.attachment = 'I';
@@ -29,9 +31,14 @@ export class PjSalaryComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.loading = true;
     this.response = null;
-    this.pjSalaryService.getSalary(form.value).subscribe((result) => {
-        this.loading = false;
-        this.response = result;
+    this.appService.requestData('pj', form.value).subscribe((result) => {
+      this.loading = false;
+      this.response = result;
+    }, (error) => {
+      this.response = null;
+      this.loading = false;
+      this.errorEnabled = true;
+      this.errorMessage = ERROR_MESSAGES[error.error.error.message];
     })
   }
 }
