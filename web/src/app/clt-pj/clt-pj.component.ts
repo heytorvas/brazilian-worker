@@ -1,8 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { AppComponent } from '../app.component';
-import { CompareOutputSchema } from '../compare.model';
-import { CLTPJService } from './clt-pj.service';
 import { NgForm } from '@angular/forms';
+import { AppComponent } from '../app.component';
+import { AppService, ERROR_MESSAGES } from '../app.service';
+import { CompareOutputSchema } from '../compare.model';
 import { CLTPJSchema } from './clt-pj.model';
 
 @Component({
@@ -13,11 +13,12 @@ import { CLTPJSchema } from './clt-pj.model';
 export class CltPjComponent implements OnInit {
   salary: CLTPJSchema = {} as CLTPJSchema;
   response!: CompareOutputSchema | null;
+  loading: boolean = false;
+  errorEnabled = false;
+  errorMessage = '';
   dependents;
 
-  loading: boolean = false;
-
-  constructor(private service: CLTPJService, private app: AppComponent) { }
+  constructor(private appService: AppService, private app: AppComponent) { }
 
   ngOnInit(): void {
     this.salary.dependents = 0;
@@ -38,9 +39,14 @@ export class CltPjComponent implements OnInit {
     this.loading = true;
     this.response = null;
     let data = this._removeUndefined(form.value)
-    this.service.getSalary(data).subscribe((result) => {
-        this.loading = false;
-        this.response = result;
+    this.appService.requestData('compare/clt', data).subscribe((result) => {
+      this.loading = false;
+      this.response = result;
+    }, (error) => {
+      this.response = null;
+      this.loading = false;
+      this.errorEnabled = true;
+      this.errorMessage = ERROR_MESSAGES[error.error.error.message];
     })
   }
 
