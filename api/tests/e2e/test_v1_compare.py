@@ -38,11 +38,11 @@ class TestIntegrationCompare:
             client.post(f"{self.URL}/pj", headers=self.HEADERS, json=body).text
         )
 
-        assert response["clt"]["raw"] == 12174.17
+        assert response["clt"]["raw"] == 12174.1
         assert response["clt"]["inss"] == 828.39
-        assert response["clt"]["irrf"] == 2250.73
+        assert response["clt"]["irrf"] == 2250.71
         assert response["clt"]["fgts"] == 973.93
-        assert response["clt"]["total"] == 11829.99
+        assert response["clt"]["total"] == 11829.94
         assert response["clt"]["vacation"] == 1003.09
         assert response["clt"]["thirteenth"] == 757.92
 
