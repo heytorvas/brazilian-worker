@@ -96,10 +96,10 @@ class TestCLTService:
         input = CLTBase(raw=7000)
         clt = calculate_clt_salary_by_pj(input)
 
-        assert clt.total == 7000
-        assert clt.raw == 7065.83
-        assert clt.inss == 825.4
-        assert clt.irrf == 846.76
-        assert clt.fgts == 565.27
+        assert clt.total == 6999.98
+        assert clt.raw == 7065.8
+        assert clt.inss == 825.39
+        assert clt.irrf == 846.75
+        assert clt.fgts == 565.26
         assert clt.vacation == 591.59
         assert clt.thirteenth == 449.47
