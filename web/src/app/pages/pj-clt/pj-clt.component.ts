@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AppComponent } from '../app.component';
-import { CompareOutputSchema } from '../compare.model';
+import { AppComponent } from '../../app.component';
+import { CompareOutputSchema } from '../../shared/compare.model';
 import { PJSalaryBase } from '../pj-salary/pj-salary.model';
-import { AppService, ERROR_MESSAGES } from '../app.service';
+import { AppService, ERROR_MESSAGES } from '../../app.service';
 
 @Component({
   selector: 'app-pj-clt',

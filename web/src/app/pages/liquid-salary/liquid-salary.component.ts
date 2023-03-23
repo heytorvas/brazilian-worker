@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AppComponent } from '../app.component';
+import { AppComponent } from '../../app.component';
 import { LiquidSalary, Salary } from './liquid-salary.model';
-import { AppService } from '../app.service';
-import { ERROR_MESSAGES } from '../app.service';
+import { AppService } from '../../app.service';
+import { ERROR_MESSAGES } from '../../app.service';
 
 @Component({
     selector: 'app-liquid-salary',

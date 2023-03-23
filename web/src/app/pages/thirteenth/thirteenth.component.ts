@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AppComponent } from '../app.component';
-import { AppService, ERROR_MESSAGES } from '../app.service';
+import { AppComponent } from '../../app.component';
+import { AppService, ERROR_MESSAGES } from '../../app.service';
 import { Thirteenth } from './thirteenth.model';
 
 @Component({
