@@ -1,9 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
-import { AppComponent } from '../app.component';
-import { AppService } from '../app.service';
+import { AppComponent } from '../../app.component';
+import { AppService } from '../../app.service';
 import { PJSalary, PJSalaryBase } from './pj-salary.model';
-import { ERROR_MESSAGES } from '../app.service';
+import { ERROR_MESSAGES } from '../../app.service';
 
 @Component({
   selector: 'app-pj-salary',
