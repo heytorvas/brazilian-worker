@@ -4,7 +4,7 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LiquidSalaryComponent } from './pages/liquid-salary/liquid-salary.component';
+import { CLTSalaryComponent } from './pages/clt-salary/clt-salary.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { CurrencyMaskModule } from "ng2-currency-mask";
@@ -22,7 +22,7 @@ import { AlertModalComponent } from './shared/alert-modal/alert-modal.component'
 @NgModule({
   declarations: [
     AppComponent,
-    LiquidSalaryComponent,
+    CLTSalaryComponent,
     HomeComponent,
     FooterComponent,
     PageNotFoundComponent,

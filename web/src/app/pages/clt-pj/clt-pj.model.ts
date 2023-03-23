@@ -1,5 +1,5 @@
-import { LiquidSalary } from "../liquid-salary/liquid-salary.model";
+import { CLTSalary } from "../clt-salary/clt-salary.model";
 
-export interface CLTPJSchema extends LiquidSalary {
+export interface CLTPJSchema extends CLTSalary {
     attachment: string;
 }

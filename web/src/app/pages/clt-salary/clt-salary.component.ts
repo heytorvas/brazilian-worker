@@ -1,20 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { NgForm } from '@angular/forms';
 import { AppComponent } from '../../app.component';
-import { LiquidSalary, Salary } from './liquid-salary.model';
+import { CLTSalary, CLTSalaryBase } from './clt-salary.model';
 import { AppService } from '../../app.service';
 import { ERROR_MESSAGES } from '../../app.service';
 
 @Component({
-    selector: 'app-liquid-salary',
-    templateUrl: './liquid-salary.component.html',
-    styleUrls: ['./liquid-salary.component.css']
+    selector: 'app-clt-salary',
+    templateUrl: './clt-salary.component.html',
+    styleUrls: ['./clt-salary.component.css']
 })
 
-export class LiquidSalaryComponent implements OnInit {
+export class CLTSalaryComponent implements OnInit {
 
-    salary: LiquidSalary = {} as LiquidSalary;
-    response!: Salary | null;
+    salary: CLTSalary = {} as CLTSalary;
+    response!: CLTSalaryBase | null;
     dependents;
     loading: boolean = false;
     errorEnabled = false;
