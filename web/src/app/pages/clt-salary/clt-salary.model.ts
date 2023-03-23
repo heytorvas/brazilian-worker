@@ -1,4 +1,4 @@
-export interface LiquidSalary {
+export interface CLTSalary {
     raw: number;
     earnings: number;
     medical_assistant: number;
@@ -7,14 +7,14 @@ export interface LiquidSalary {
     transport_voucher: any;
 }
 
-export interface Salary extends LiquidSalary{
+export interface CLTSalaryBase extends CLTSalary{
     inss: number,
     irrf: number,
     fgts: number,
     total: number
 }
 
-export interface CLT extends Salary {
+export interface CLT extends CLTSalaryBase {
     vacation: number;
     thirteenth: number;
 }
