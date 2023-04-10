@@ -18,6 +18,8 @@ import { PjCltComponent } from './pages/pj-clt/pj-clt.component';
 import { CltPjComponent } from './pages/clt-pj/clt-pj.component';
 import { ThirteenthComponent } from './pages/thirteenth/thirteenth.component';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
+import { HourComponent } from './pages/hour/hour.component';
+import { DigitOnlyModule } from '@uiowa/digit-only';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,8 @@ import { AlertModalComponent } from './shared/alert-modal/alert-modal.component'
     PjCltComponent,
     CltPjComponent,
     ThirteenthComponent,
-    AlertModalComponent
+    AlertModalComponent,
+    HourComponent
     
   ],
   imports: [
@@ -41,7 +44,8 @@ import { AlertModalComponent } from './shared/alert-modal/alert-modal.component'
     AppRoutingModule,
     FormsModule,
     ReactiveFormsModule,
-    CurrencyMaskModule
+    CurrencyMaskModule,
+    DigitOnlyModule
   ],
   bootstrap: [AppComponent]
 })
