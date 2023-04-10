@@ -19,7 +19,14 @@ export class AppComponent {
   }
 
   removeUndefined(obj: Object) {
-    Object.keys(obj).forEach(key => obj[key] === undefined && delete obj[key]);
+    for (var key in obj) {
+      if (obj.hasOwnProperty(key)) {
+          var value = obj[key];
+          if (value === null || value === undefined || value === '') {
+              delete obj[key];
+          }
+      }
+    }
     return obj
   }
 }

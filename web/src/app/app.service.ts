@@ -18,6 +18,7 @@ export class AppService {
 }
 
 export const ERROR_MESSAGES = {
+    'Default': 'Ocorreu um erro. Tente novamente mais tarde :(',
     'Maximum CLT raw salary reached.': 'Máximo salário bruto da CLT atingido. Verifique o valor informado e tente novamente.',
     'Maximum PJ raw salary reached.': 'Máximo salário bruto da PJ atingido. Verifique o valor informado e tente novamente.',
     'Internal Server Error.': 'Erro interno do servidor. Tente novamente mais tarde.',
