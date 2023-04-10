@@ -31,15 +31,10 @@ export class CltPjComponent implements OnInit {
     this.app.numberOnly(event);
   }
 
-  _removeUndefined(obj: Object) {
-    return this.app.removeUndefined(obj);
-  }
-
   onSubmit(form: NgForm) {
     this.loading = true;
     this.response = null;
-    let data = this._removeUndefined(form.value)
-    this.appService.requestData('compare/clt', data).subscribe((result) => {
+    this.appService.requestData('compare/clt', this.app.removeUndefined(form.value)).subscribe((result) => {
       this.loading = false;
       this.response = result;
     }, (error) => {

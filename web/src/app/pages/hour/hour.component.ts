@@ -28,8 +28,7 @@ export class HourComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.loading = true;
     this.response = null;
-    let data = this.app.removeUndefined(form.value)
-    this.appService.requestData('hour', data).subscribe((result) => {
+    this.appService.requestData('hour', this.app.removeUndefined(form.value)).subscribe((result) => {
       this.loading = false;
       this.response = result;
     }, (error) => {

@@ -7,7 +7,7 @@ import { AppComponent } from './app.component';
 import { CLTSalaryComponent } from './pages/clt-salary/clt-salary.component';
 
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-import { CurrencyMaskModule } from "ng2-currency-mask";
+import { CurrencyMaskConfig, CurrencyMaskModule, CURRENCY_MASK_CONFIG } from "ng2-currency-mask";
 import { HomeComponent } from './components/home/home.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { PageNotFoundComponent } from './pages/page-not-found/page-not-found.component';
@@ -20,6 +20,16 @@ import { ThirteenthComponent } from './pages/thirteenth/thirteenth.component';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
 import { HourComponent } from './pages/hour/hour.component';
 import { DigitOnlyModule } from '@uiowa/digit-only';
+
+export const WebCurrencyMaskConfig: CurrencyMaskConfig = {
+  prefix: 'R$',
+  allowNegative: false,
+  thousands: '.',
+  decimal: ',',
+  align: 'left',
+  precision: 2,
+  suffix: '',
+};
 
 @NgModule({
   declarations: [
@@ -47,6 +57,9 @@ import { DigitOnlyModule } from '@uiowa/digit-only';
     CurrencyMaskModule,
     DigitOnlyModule
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
+  providers: [
+    { provide: CURRENCY_MASK_CONFIG, useValue: WebCurrencyMaskConfig }
+  ]
 })
 export class AppModule { }

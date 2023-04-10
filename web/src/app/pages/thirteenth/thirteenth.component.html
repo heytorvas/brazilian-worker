@@ -16,8 +16,7 @@
                             <div class="form-floating">
                                 <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control"
                                     id="thirteenth-raw" placeholder="Salário Bruto" name="raw" inputmode="numeric"
-                                    [ngModel]="salary.raw"
-                                    [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}" required>
+                                    [ngModel]="salary.raw" required>
                                 <label for="thirteenth-raw">Salário Bruto</label>
                             </div>
                         </div>
@@ -28,8 +27,7 @@
                             <div class="form-floating">
                                 <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control"
                                     id="thirteenth-earnings" placeholder="Ganhos Adicionais" [ngModel]="salary.earnings"
-                                    name="earnings" inputmode="numeric"
-                                    [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}">
+                                    name="earnings" inputmode="numeric">
                                 <label for="thirteenth-earnings">Ganhos Adicionais</label>
                             </div>
                         </div>

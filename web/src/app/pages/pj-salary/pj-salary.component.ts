@@ -31,7 +31,7 @@ export class PjSalaryComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.loading = true;
     this.response = null;
-    this.appService.requestData('pj', form.value).subscribe((result) => {
+    this.appService.requestData('pj', this.app.removeUndefined(form.value)).subscribe((result) => {
       this.loading = false;
       this.response = result;
     }, (error) => {

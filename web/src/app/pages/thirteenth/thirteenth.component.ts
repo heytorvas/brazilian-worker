@@ -34,7 +34,7 @@ export class ThirteenthComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.loading = true;
     this.response = null;
-    this.appService.requestData('thirteenth', form.value).subscribe((result) => {
+    this.appService.requestData('thirteenth', this.app.removeUndefined(form.value)).subscribe((result) => {
         this.loading = false;
         this.response = result;
     }, (error) => {
