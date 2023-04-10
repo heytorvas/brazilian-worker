@@ -38,8 +38,8 @@
                             <span class="input-group-text">📆</span>
                             <div class="form-floating">
                                 <input digitOnly maxlength="2" pattern="[0-9]*" type="text" class="form-control"
-                                    id="floatingInputGroup1" placeholder="Horas Diárias" name="daily_hour" inputmode="numeric"
-                                    [ngModel]="hour.daily_hour">
+                                    id="floatingInputGroup1" placeholder="Horas Diárias" name="daily_hours" inputmode="numeric"
+                                    [ngModel]="hour.daily_hours">
                                 <label for="floatingInputGroup1">Horas Diárias</label>
                             </div>
                         </div>
@@ -78,7 +78,7 @@
                         </div>
                     </div>
                 </div>
-                <div *ngIf="response.daily_hour != null">
+                <div *ngIf="response.daily_hours != null">
                     <div class="row mt-3">
                         <div class="col-md-12 text-center">
                             <div class="card">
