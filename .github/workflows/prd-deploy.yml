@@ -22,7 +22,7 @@ jobs:
           tag: ${{ steps.tag_version.outputs.new_tag }}
           name: ${{ steps.tag_version.outputs.new_tag }}
           body: ${{ steps.tag_version.outputs.changelog }}
-      - uses: neobrains/space-deployment-github-action@v0.3
+      - uses: neobrains/space-deployment-github-action@v0.5
         with:
           access_token: ${{ secrets.DETA_SPACE_ACCESS_TOKEN }}
           project_id: ${{ secrets.DETA_SPACE_PROJECT_ID }}
