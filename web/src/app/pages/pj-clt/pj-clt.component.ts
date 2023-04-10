@@ -31,7 +31,7 @@ export class PjCltComponent implements OnInit {
   onSubmit(form: NgForm) {
     this.loading = true;
     this.response = null;
-    this.appService.requestData('compare/pj', form.value).subscribe((result) => {
+    this.appService.requestData('compare/pj', this.app.removeUndefined(form.value)).subscribe((result) => {
         this.loading = false;
         this.response = result;
     }, (error) => {

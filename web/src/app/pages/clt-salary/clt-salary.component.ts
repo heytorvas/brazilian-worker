@@ -28,10 +28,6 @@ export class CLTSalaryComponent implements OnInit {
         this.dependents = this.app.dependents;
     }
 
-    _removeUndefined(obj: Object) {
-        return this.app.removeUndefined(obj);
-    }
-
     numberOnly(event) {
         return this.app.numberOnly(event);
     }
@@ -39,8 +35,7 @@ export class CLTSalaryComponent implements OnInit {
     onSubmit(form: NgForm) {
         this.loading = true;
         this.response = null;
-        let data = this._removeUndefined(form.value)
-        this.appService.requestData('clt', data).subscribe((result) => {
+        this.appService.requestData('clt', this.app.removeUndefined(form.value)).subscribe((result) => {
             this.loading = false;
             this.response = result
         }, (error) => {

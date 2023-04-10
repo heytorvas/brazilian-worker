@@ -16,8 +16,7 @@
                             <div class="form-floating">
                                 <input currencyMask (keypress)="numberOnly($event)" type="text" class="form-control"
                                     id="floatingInputGroup1" placeholder="Salário Bruto" name="raw" inputmode="numeric"
-                                    [ngModel]="salary.raw"
-                                    [options]="{ prefix: 'R$', thousands: '.', decimal: ',', align: 'left'}" required>
+                                    [ngModel]="salary.raw" required>
                                 <label for="floatingInputGroup1">Salário Bruto</label>
                             </div>
                         </div>
