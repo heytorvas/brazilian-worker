@@ -29,11 +29,12 @@
 ## 🚀 Features
 * Calculate CLT Liquid Salary
 * Calculate PJ Liquid Salary
+* Calculate Thirteen Salary
+* Calculate Salary per Hour
 * Compare CLT x PJ
 * Compare PJ X CLT
 
   ### <b>Coming Soon:</b>
-* Calculate Thirteen Salary
 * Calculate Vacation Salary
 * Calculate Retired Time
 
