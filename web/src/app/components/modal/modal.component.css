@@ -1,0 +1,17 @@
+.modal {
+    background: rgba(0, 0, 0, .5)
+}
+
+.modal-title {
+    color: var(--bs-primary);
+    text-align: center;
+    font-weight: bold;
+}
+
+.modal-body {
+    text-align: justify;
+}
+
+.btn-primary {
+    background-color: var(--bs-primary);
+}

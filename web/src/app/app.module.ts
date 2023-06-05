@@ -20,6 +20,7 @@ import { ThirteenthComponent } from './pages/thirteenth/thirteenth.component';
 import { AlertModalComponent } from './shared/alert-modal/alert-modal.component';
 import { HourComponent } from './pages/hour/hour.component';
 import { DigitOnlyModule } from '@uiowa/digit-only';
+import { ModalComponent } from './components/modal/modal.component';
 
 export const WebCurrencyMaskConfig: CurrencyMaskConfig = {
   prefix: 'R$',
@@ -45,7 +46,8 @@ export const WebCurrencyMaskConfig: CurrencyMaskConfig = {
     CltPjComponent,
     ThirteenthComponent,
     AlertModalComponent,
-    HourComponent
+    HourComponent,
+    ModalComponent
     
   ],
   imports: [
