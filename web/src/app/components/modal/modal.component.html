@@ -1,0 +1,17 @@
+<button type="button" (click)="openModal()" style="display:none"></button>
+
+<div class="modal" tabindex="-1" role="dialog" [ngStyle]="{'display':display}">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <h3 class="modal-title mt-3">AVISO</h3>
+            <div class="modal-body">
+                <p>Portal do Trabalhador está com os valores de base dos cálculos atualizados com a
+                    Medida Provisória Nº 1171, publicada na data de 30/04/2023, relacionada a nova
+                    tabela progressiva do Imposto de Renda.</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-primary" (click)="onCloseHandled()">Fechar</button>
+            </div>
+        </div>
+    </div>
+</div>
