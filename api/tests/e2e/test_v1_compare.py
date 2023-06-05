@@ -21,16 +21,16 @@ class TestIntegrationCompare:
 
         assert response["clt"]["raw"] == 7000
         assert response["clt"]["inss"] == 816.18
-        assert response["clt"]["irrf"] == 831.19
+        assert response["clt"]["irrf"] == 815.59
         assert response["clt"]["fgts"] == 560
-        assert response["clt"]["thirteenth"] == 446.05
-        assert response["clt"]["vacation"] == 586.29
-        assert response["clt"]["total"] == 6944.97
+        assert response["clt"]["thirteenth"] == 447.35
+        assert response["clt"]["vacation"] == 587.59
+        assert response["clt"]["total"] == 6963.17
 
-        assert response["pj"]["raw"] == 7234.34
+        assert response["pj"]["raw"] == 7253.3
         assert response["pj"]["attachment"] == "I"
-        assert response["pj"]["tax"] == 289.37
-        assert response["pj"]["total"] == 6944.97
+        assert response["pj"]["tax"] == 290.13
+        assert response["pj"]["total"] == 6963.17
 
     def test_compare_pj_clt_salary(self):
         body = {"attachment": "V", "raw": 14000}
@@ -38,13 +38,13 @@ class TestIntegrationCompare:
             client.post(f"{self.URL}/pj", headers=self.HEADERS, json=body).text
         )
 
-        assert response["clt"]["raw"] == 12174.1
+        assert response["clt"]["raw"] == 12154.90
         assert response["clt"]["inss"] == 828.39
-        assert response["clt"]["irrf"] == 2250.71
-        assert response["clt"]["fgts"] == 973.93
-        assert response["clt"]["total"] == 11829.94
-        assert response["clt"]["vacation"] == 1003.09
-        assert response["clt"]["thirteenth"] == 757.92
+        assert response["clt"]["irrf"] == 2229.83
+        assert response["clt"]["fgts"] == 972.39
+        assert response["clt"]["total"] == 11829.97
+        assert response["clt"]["vacation"] == 1002.84
+        assert response["clt"]["thirteenth"] == 758.06
 
         assert response["pj"]["attachment"] == "V"
         assert response["pj"]["raw"] == 14000

@@ -35,11 +35,12 @@ class TestCLTService:
         assert float(percentage) == 9
         assert deduction == 18.18
 
-    def test_get_percentage_and_deduction_from_irrf(self):
-        percentage, deduction = _find_percentage_and_deduction(IRRF_DATA, 2000)
+    @pytest.mark.parametrize("raw,percent,ded", [(2000, 0, 0), (2500, 7.5, 158.4)])
+    def test_get_percentage_and_deduction_from_irrf(self, raw, percent, ded):
+        percentage, deduction = _find_percentage_and_deduction(IRRF_DATA, raw)
 
-        assert float(percentage) == 7.5
-        assert deduction == 142.8
+        assert float(percentage) == percent
+        assert deduction == ded
 
     def test_calculate_liquid_salary(self):
         input = CLTBase(raw=3000)
@@ -53,8 +54,8 @@ class TestCLTService:
         assert salary.medical_assistant == 0
         assert salary.fgts == 240
         assert salary.inss == 269
-        assert salary.irrf == 62.02
-        assert salary.total == 2668.98
+        assert salary.irrf == 46.42
+        assert salary.total == 2684.58
 
     def test_calculate_transport_voucher(self):
         salary = 2000
@@ -71,12 +72,12 @@ class TestCLTService:
 
     @pytest.mark.parametrize(
         "salary,inss,value",
-        [(3000, 269, 62.02), (4000, 396.18, 185.77), (5000, 536.18, 368.23)],
+        [(3000, 269, 46.42), (4000, 396.18, 170.17), (5000, 536.18, 352.63)],
     )
     def test_calculate_irrf_without_dependents(self, salary, inss, value):
         assert _calculate_irrf_value(salary, inss, dependents=0) == value
 
-    @pytest.mark.parametrize("dependent,value", [(1, 47.81), (2, 33.59), (3, 19.37)])
+    @pytest.mark.parametrize("dependent,value", [(1, 32.21), (2, 17.99), (3, 3.77)])
     def test_calculate_irrf_with_dependents(self, dependent, value):
         assert (
             _calculate_irrf_value(salary=3000, inss=269, dependents=dependent) == value
@@ -96,10 +97,10 @@ class TestCLTService:
         input = CLTBase(raw=7000)
         clt = calculate_clt_salary_by_pj(input)
 
-        assert clt.total == 6999.98
-        assert clt.raw == 7065.8
-        assert clt.inss == 825.39
-        assert clt.irrf == 846.75
-        assert clt.fgts == 565.26
-        assert clt.vacation == 591.59
-        assert clt.thirteenth == 449.47
+        assert clt.total == 6999.95
+        assert clt.raw == 7044.0
+        assert clt.inss == 822.34
+        assert clt.irrf == 826.00
+        assert clt.fgts == 563.52
+        assert clt.vacation == 591.13
+        assert clt.thirteenth == 449.64

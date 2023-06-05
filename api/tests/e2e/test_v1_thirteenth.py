@@ -21,7 +21,7 @@ class TestIntegrationThirteenth:
 
         assert response["raw"] == 5000
         assert response["months"] == 12
-        assert response["total"] == 4095.59
+        assert response["total"] == 4111.19
 
     def test_calculate_thirteenth_partitioned(self):
         body = {"raw": 5000, "months": 10}
@@ -31,4 +31,4 @@ class TestIntegrationThirteenth:
 
         assert response["raw"] == 5000
         assert response["months"] == 10
-        assert response["total"] == 3539.89
+        assert response["total"] == 3555.49
